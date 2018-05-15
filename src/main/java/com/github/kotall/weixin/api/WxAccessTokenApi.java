@@ -1,6 +1,5 @@
 package com.github.kotall.weixin.api;
 
-import com.github.aracwong.weixin.dto.accesstoken.*;
 import com.github.kotall.weixin.dto.accesstoken.*;
 import com.github.kotall.weixin.dto.result.WxResult;
 
