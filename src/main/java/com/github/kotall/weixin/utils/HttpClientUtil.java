@@ -24,9 +24,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/26 0026 下午 9:03
+ * @author aracwong
+ * @version 1.0.0
  */
 public class HttpClientUtil {
 
@@ -48,8 +47,10 @@ public class HttpClientUtil {
      * Post 请求
      *
      * @param url
+     *        请求地址
      * @param postEntity
-     * @return
+     *        请求体
+     * @return  响应字符串
      */
     public static String post(String url, String postEntity) {
         try {
@@ -85,8 +86,11 @@ public class HttpClientUtil {
      * Get 请求
      *
      * @param url
+     *        请求地址
      * @param queryParam
+     *        请求参数
      * @return
+     *        响应字符串
      */
     public static String get(String url, String queryParam) {
         String question_mark = "?";
@@ -119,10 +123,15 @@ public class HttpClientUtil {
     /**
      * 上传文件
      * @param url
+     *        请求地址
      * @param filePath
+     *        文件路径
      * @param fileFieldName
+     *        field名称
      * @param parameters
+     *        参数
      * @return
+     *        响应结果
      */
     public String upload(String url, String filePath, String fileFieldName, Map<String, Object> parameters) {
         File file = new File(filePath);
@@ -156,9 +165,13 @@ public class HttpClientUtil {
     /**
      * 下载文件
      * @param url
+     *        请求地址
      * @param fileStorePath
+     *        文件路径
      * @param parameters
+     *        参数
      * @return
+     *        响应结果
      */
     public String download(String url, String fileStorePath, Map<String, String> parameters) {
         HttpGet httpGet = new HttpGet(url);

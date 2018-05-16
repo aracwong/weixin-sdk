@@ -4,9 +4,8 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import lombok.Data;
 
 /**
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/5/1 0001 下午 10:54
+ * @author aracwong
+ * @version 1.0.0
  */
 @Data
 public class WxBeanBasedResponseWrapper extends WxResponseWrapper {

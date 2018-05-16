@@ -6,9 +6,8 @@ import java.util.Arrays;
 
 /**
  * 请求校验工具类
- * @author : zpwang
- * @version : 1.0.0
- * @date : 2018/2/13
+ * @author zpwang
+ * @version 1.0.0
  */
 public class SignUtil {
     /**

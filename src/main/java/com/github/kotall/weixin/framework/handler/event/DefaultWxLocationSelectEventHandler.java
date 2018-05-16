@@ -10,9 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * 弹出地理位置选择器的事件推送
  *
- * @author: zpwang
- * @version: 1.0.0
- * @date: 2018/5/6
+ * @author zpwang
+ * @version 1.0.0
  */
 @Slf4j
 public class DefaultWxLocationSelectEventHandler extends WxDelegateRequestFilter<WxLocationSelectEventReq> {

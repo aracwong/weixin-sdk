@@ -8,9 +8,8 @@ import com.github.kotall.weixin.framework.msg.file.WxFileMsgReq;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/5/1 0001 下午 5:39
+ * @author aracwong
+ * @version 1.0.0
  */
 @Slf4j
 public class DefaultWxFileRequestHandler extends WxDelegateRequestFilter<WxFileMsgReq> {

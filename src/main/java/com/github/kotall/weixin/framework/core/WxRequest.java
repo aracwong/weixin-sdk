@@ -5,9 +5,8 @@ import java.util.Map;
 /**
  * 微信请求对象接口
  *
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/30 0030 上午 7:53
+ * @author aracwong
+ * @version 1.0.0
  */
 public interface WxRequest {
 

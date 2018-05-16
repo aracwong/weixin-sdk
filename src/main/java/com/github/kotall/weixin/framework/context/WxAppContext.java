@@ -20,9 +20,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @author : zpwang
- * @version : 1.0.0
- * @date : 2018/2/22
+ * @author zpwang
+ * @version 1.0.0
  */
 public class WxAppContext {
 

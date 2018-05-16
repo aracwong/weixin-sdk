@@ -15,9 +15,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/26 0026 下午 10:01
+ * @author aracwong
+ * @version 1.0.0
  */
 public class WxMenuApiImpl implements WxMenuApi {
 

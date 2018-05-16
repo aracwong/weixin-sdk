@@ -3,9 +3,8 @@ package com.github.kotall.weixin.framework.core;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/29 0029 上午 10:03
+ * @author aracwong
+ * @version 1.0.0
  */
 public class WxEventRequest extends WxRequestWrapper {
 

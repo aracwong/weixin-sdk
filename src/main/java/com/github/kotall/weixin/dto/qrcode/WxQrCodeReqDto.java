@@ -7,9 +7,8 @@ import lombok.ToString;
 import java.io.Serializable;
 
 /**
- * @author: zpwang
- * @version: 1.0.0
- * @date : 2018/4/22 0022 上午 9:31
+ * @author zpwang
+ * @version 1.0.0
  */
 @Data
 @ToString

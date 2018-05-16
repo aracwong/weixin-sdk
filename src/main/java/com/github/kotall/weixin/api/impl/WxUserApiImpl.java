@@ -8,9 +8,8 @@ import com.github.kotall.weixin.utils.WxUtil;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @author: zpwang
- * @version: 1.0.0
- * @date: 2018/5/10
+ * @author zpwang
+ * @version 1.0.0
  */
 @Slf4j
 public class WxUserApiImpl implements WxUserApi {

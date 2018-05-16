@@ -28,9 +28,8 @@ import java.util.regex.Pattern;
 /**
  * 微信请求工具类
  *
- * @author : zpwang
- * @version : 1.0.0
- * @date : 2018/2/22
+ * @author zpwang
+ * @version 1.0.0
  */
 public class WxUtil {
 
@@ -38,6 +37,8 @@ public class WxUtil {
      * GET 请求
      *
      * @param url
+     *      请求地址
+     * @return 响应 json对象
      */
     public static JSONObject get(String url) throws WxException {
         // 1.建立HttpClient对象
@@ -58,7 +59,10 @@ public class WxUtil {
      * POST 请求
      *
      * @param url
+     *       请求地址
      * @param data
+     *       请求数据
+     * @return 响应 json对象
      */
     public static JSONObject post(String url, String data) throws WxException {
         // 1.建立HttpClient对象
@@ -84,8 +88,10 @@ public class WxUtil {
     /**
      * 处理微信响应
      * @param res
+     *        响应
      * @return
-     * @throws IOException
+     *        Json对象
+     * @throws IOException IOException
      */
     private static JSONObject handleHttpResponse(CloseableHttpResponse res) throws IOException {
         JSONObject rs = null;
@@ -112,6 +118,15 @@ public class WxUtil {
         return rs;
     }
 
+    /**
+     *
+     * @param data
+     *        xml 字符串
+     * @return
+     *        map对象
+     * @throws Exception
+     *        Exception
+     */
     public static Map<String, String> parseToMap(String data) throws Exception {
         // 将解析结果存储在HashMap中
         Map<String, String> map = new HashMap<>(1);

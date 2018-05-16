@@ -9,9 +9,8 @@ import java.io.Serializable;
 /**
  * 客服
  *
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/29 0029 上午 10:46
+ * @author aracwong
+ * @version 1.0.0
  */
 @Data
 @ToString

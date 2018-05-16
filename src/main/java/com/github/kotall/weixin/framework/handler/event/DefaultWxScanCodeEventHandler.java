@@ -11,9 +11,8 @@ import lombok.extern.slf4j.Slf4j;
  * 扫描推事件/扫描推且弹出 "消息接受中" 事件
  *
  * 场景: 微信自定义菜单-扫码菜单 扫码后推送事件
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/29 0029 下午 7:14
+ * @author aracwong
+ * @version 1.0.0
  */
 @Slf4j
 public class DefaultWxScanCodeEventHandler extends WxDelegateRequestFilter<WxScanCodeEventReq> {

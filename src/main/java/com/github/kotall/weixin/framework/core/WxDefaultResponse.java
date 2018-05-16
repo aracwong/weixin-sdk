@@ -7,9 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/5/1 0001 下午 6:03
+ * @author aracwong
+ * @version 1.0.0
  */
 @Data
 public class WxDefaultResponse implements WxResponse {

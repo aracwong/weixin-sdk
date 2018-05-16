@@ -6,9 +6,8 @@ import com.github.kotall.weixin.dto.result.WxResult;
 import java.util.List;
 
 /**
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/26 0026 下午 10:00
+ * @author aracwong
+ * @version 1.0.0
  */
 public interface WxMenuApi {
 

@@ -8,9 +8,8 @@ import lombok.ToString;
 
 /**
  * 普通文本消息
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/29 0029 上午 9:43
+ * @author aracwong
+ * @version 1.0.0
  */
 @Data
 @ToString(callSuper = true)

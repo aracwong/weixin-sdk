@@ -3,9 +3,8 @@ package com.github.kotall.weixin.framework.core;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
 /**
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/5/1 0001 下午 6:07
+ * @author aracwong
+ * @version 1.0.0
  */
 public class WxResponseWrapper implements WxResponse {
 

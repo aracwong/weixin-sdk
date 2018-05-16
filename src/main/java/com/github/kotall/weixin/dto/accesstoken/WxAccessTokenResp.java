@@ -5,9 +5,8 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @author : zpwang
- * @version : 1.0.0
- * @date : 2018/2/22
+ * @author zpwang
+ * @version 1.0.0
  */
 @Data
 public class WxAccessTokenResp implements Serializable {

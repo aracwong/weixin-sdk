@@ -11,9 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 /**
  * 关注/取消关注 事件处理
  *
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/30 0030 上午 9:29
+ * @author aracwong
+ * @version 1.0.0
  */
 @Slf4j
 public class DefaultWxFollowEventHandler extends WxDelegateRequestFilter<WxFollowEventReq> {

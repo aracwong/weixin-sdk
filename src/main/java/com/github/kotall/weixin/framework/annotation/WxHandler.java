@@ -10,9 +10,8 @@ import java.lang.annotation.Target;
 /**
  * 微信消息处理器注解
  *
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/5/1 0001 上午 11:13
+ * @author aracwong
+ * @version 1.0.0
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)

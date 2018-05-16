@@ -1,9 +1,8 @@
 package com.github.kotall.weixin.framework.constant;
 
 /**
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/19 0019 下午 9:58
+ * @author aracwong
+ * @version 1.0.0
  */
 public class WxMsgType {
 

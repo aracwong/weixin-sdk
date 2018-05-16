@@ -3,9 +3,8 @@ package com.github.kotall.weixin.framework.core;
 /**
  * 微信消息具体处理器
  *
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/30 0030 上午 9:16
+ * @author aracwong
+ * @version 1.0.0
  */
 public interface WxHandler<R extends WxRequest> {
 

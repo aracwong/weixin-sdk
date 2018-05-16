@@ -13,9 +13,8 @@ import lombok.extern.slf4j.Slf4j;
  * 1. 未关注时 扫码
  * 2. 已关注时 扫码
  *
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/29 0029 下午 7:14
+ * @author aracwong
+ * @version 1.0.0
  */
 @Slf4j
 public class DefaultWxQrCodeEventHandler extends WxDelegateRequestFilter<WxQrCodeEventReq> {

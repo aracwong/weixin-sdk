@@ -18,9 +18,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/30 0030 下午 12:16
+ * @author aracwong
+ * @version 1.0.0
  */
 public class WxXmlRequestResolver {
 

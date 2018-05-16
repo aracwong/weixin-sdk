@@ -12,9 +12,8 @@ import lombok.extern.slf4j.Slf4j;
  * 2. 弹出拍照或者相册发图的事件推送
  * 3. 弹出微信相册发图器的事件推送
  *
- * @author: zpwang
- * @version: 1.0.0
- * @date: 2018/5/5
+ * @author zpwang
+ * @version 1.0.0
  */
 @Slf4j
 public class DefaultWxPicPhotoEventHandler extends WxDelegateRequestFilter<WxPicSysPhotoEventReq> {

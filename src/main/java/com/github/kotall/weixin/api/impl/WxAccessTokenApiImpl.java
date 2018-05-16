@@ -11,9 +11,8 @@ import org.slf4j.LoggerFactory;
 
 
 /**
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/27 0027 下午 10:02
+ * @author aracwong
+ * @version 1.0.0
  */
 public class WxAccessTokenApiImpl implements WxAccessTokenApi {
 

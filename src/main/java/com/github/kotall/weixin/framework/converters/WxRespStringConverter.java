@@ -8,9 +8,8 @@ import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/5/2 0002 下午 9:16
+ * @author aracwong
+ * @version 1.0.0
  */
 @Slf4j
 public class WxRespStringConverter implements Converter {

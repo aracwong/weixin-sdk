@@ -12,9 +12,8 @@ import java.util.List;
 /**
  * 回复图文消息
  *
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/29 0029 上午 10:37
+ * @author aracwong
+ * @version 1.0.0
  */
 @Data
 @ToString(callSuper = true)

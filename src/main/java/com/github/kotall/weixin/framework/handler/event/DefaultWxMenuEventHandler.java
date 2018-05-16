@@ -8,9 +8,8 @@ import com.github.kotall.weixin.framework.event.WxMenuEventReq;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/29 0029 下午 7:12
+ * @author aracwong
+ * @version 1.0.0
  */
 @Slf4j
 public class DefaultWxMenuEventHandler extends WxDelegateRequestFilter<WxMenuEventReq> {

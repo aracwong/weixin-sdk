@@ -1,9 +1,8 @@
 package com.github.kotall.weixin.framework.constant;
 
 /**
- * @author : zpwang
- * @version : 1.0.0
- * @date : 2018/2/22
+ * @author zpwang
+ * @version 1.0.0
  */
 public class WxConstant {
 

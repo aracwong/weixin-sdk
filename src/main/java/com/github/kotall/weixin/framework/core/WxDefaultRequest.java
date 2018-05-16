@@ -7,9 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/30 0030 上午 10:21
+ * @author aracwong
+ * @version 1.0.0
  */
 public class WxDefaultRequest extends WxXmlRequestResolver implements WxRequest {
     /**

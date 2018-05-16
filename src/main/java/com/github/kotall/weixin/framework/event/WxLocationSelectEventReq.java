@@ -6,9 +6,8 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 import lombok.Data;
 
 /**
- * @author: zpwang
- * @version: 1.0.0
- * @date: 2018/5/6
+ * @author zpwang
+ * @version 1.0.0
  */
 @Data
 @XStreamAlias("xml")

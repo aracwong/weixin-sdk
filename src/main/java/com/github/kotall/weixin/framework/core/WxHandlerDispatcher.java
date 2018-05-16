@@ -8,9 +8,8 @@ import java.util.List;
 /**
  * 单例对象
  *
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/29 0029 上午 9:27
+ * @author aracwong
+ * @version 1.0.0
  */
 @Slf4j
 public class WxHandlerDispatcher {

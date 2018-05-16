@@ -4,9 +4,8 @@ import com.github.kotall.weixin.dto.custom.WxKeFuReqDto;
 import com.github.kotall.weixin.dto.result.WxResult;
 
 /**
- * @author: zpwang
- * @version: 1.0.0
- * @date: 2018/5/6
+ * @author zpwang
+ * @version 1.0.0
  */
 public interface WxKeFuApi {
 

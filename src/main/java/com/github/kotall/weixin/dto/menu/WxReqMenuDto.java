@@ -8,9 +8,8 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/22 0022 上午 9:31
+ * @author aracwong
+ * @version 1.0.0
  */
 @Data
 @ToString

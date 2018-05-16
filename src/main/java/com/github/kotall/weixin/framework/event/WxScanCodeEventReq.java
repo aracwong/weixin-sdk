@@ -7,9 +7,8 @@ import lombok.Data;
 import lombok.ToString;
 
 /**
- * @author: zpwang
- * @version: 1.0.0
- * @date: 2018/5/5
+ * @author zpwang
+ * @version 1.0.0
  */
 @Data
 @ToString(callSuper = true)

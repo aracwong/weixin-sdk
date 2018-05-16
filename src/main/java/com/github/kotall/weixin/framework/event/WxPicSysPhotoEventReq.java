@@ -12,9 +12,8 @@ import java.util.List;
 /**
  * 弹出系统拍照发图的事件推送
  *
- * @author: zpwang
- * @version: 1.0.0
- * @date: 2018/5/5
+ * @author zpwang
+ * @version 1.0.0
  */
 @Data
 @XStreamAlias("xml")

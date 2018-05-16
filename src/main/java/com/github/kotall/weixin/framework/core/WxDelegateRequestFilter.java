@@ -8,9 +8,8 @@ import java.lang.reflect.ParameterizedType;
 /**
  * Handler 业务处理代理类
  *
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/30 0030 上午 8:58
+ * @author aracwong
+ * @version 1.0.0
  */
 public abstract class WxDelegateRequestFilter<R extends WxRequest> implements WxRequestFilter, WxHandler<R> {
 

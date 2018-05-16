@@ -5,9 +5,8 @@ import lombok.Data;
 import java.util.Map;
 
 /**
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/30 0030 上午 10:36
+ * @author aracwong
+ * @version 1.0.0
  */
 @Data
 public class WxRequestWrapper implements WxRequest {

@@ -6,9 +6,8 @@ import java.util.List;
 /**
  * 处理器链、注意并发问题
  *
- * @author : aracwong
- * @version : 1.0.0
- * @date : 2018/4/30 0030 上午 7:56
+ * @author aracwong
+ * @version 1.0.0
  */
 public class WxRequestFilterChain implements WxRequestFilter {
 
@@ -19,7 +18,9 @@ public class WxRequestFilterChain implements WxRequestFilter {
      * 注册处理器
      *
      * @param wxRequestFilter
+     *        处理器
      * @return
+     *        处理器链
      */
     public WxRequestFilterChain addHandler(WxRequestFilter wxRequestFilter) {
         this.handlerList.add(wxRequestFilter);
