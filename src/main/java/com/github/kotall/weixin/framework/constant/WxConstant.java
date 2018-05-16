@@ -90,7 +90,7 @@ public class WxConstant {
     public static final String HANDLER_MENU_SCANCODE_PUSH_EVENT = "HANDLER_MENU_SCANCODE_PUSH_EVENT";
 
     /**
-     * 弹出系统拍照发图的事件推送<br/>
+     * 弹出系统拍照发图的事件推送
      * 弹出拍照或者相册发图的事件推送
      */
     public static final String HANDLER_MENU_PIC_PHOTO_EVENT = "HANDLER_MENU_PIC_PHOTO_EVENT";

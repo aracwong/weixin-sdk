@@ -12,11 +12,16 @@ import java.util.Arrays;
 public class SignUtil {
     /**
      * 验证签名
-     * @param token 与接口配置信息中的Token要一致
+     * @param token
+     *        与接口配置信息中的Token要一致
      * @param signature
+     *        signature
      * @param timestamp
+     *        timestamp
      * @param nonce
+     *        nonce
      * @return
+     *        是否校验通过
      */
     public static boolean checkSignature(String token,String signature, String timestamp, String nonce) {
         String[] arr = new String[] { token, timestamp, nonce };
@@ -46,8 +51,9 @@ public class SignUtil {
     /**
      * 将字节数组转换为十六进制字符串
      *
-     * @param byteArray
+     * @param byteArray  字节数组
      * @return
+     *        编码后的字符串
      */
     private static String byteToStr(byte[] byteArray) {
         String strDigest = "";
@@ -61,7 +67,9 @@ public class SignUtil {
      * 将字节转换为十六进制字符串
      *
      * @param mByte
+     *      字节数据
      * @return
+     *      字符
      */
     private static String byteToHexStr(byte mByte) {
 

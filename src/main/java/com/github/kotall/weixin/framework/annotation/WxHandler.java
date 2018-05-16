@@ -21,6 +21,7 @@ public @interface WxHandler {
      * 消息类型 对应微信报文中的 WxMsgType
      * @see WxMsgType
      * @return
+     *      msgType
      */
     String forMsgType();
 }

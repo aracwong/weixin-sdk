@@ -27,24 +27,28 @@ public interface WxResponse {
     /**
      * MsgType
      * @return
+     *    msgType
      */
     String getMsgType();
 
     /**
      * FromUserName
      * @return
+     *     fromUserName
      */
     String getFromUserName();
 
     /**
      * ToUserName
      * @return
+     *     toUserName
      */
     String getToUserName();
 
     /**
      * CreateTime
      * @return
+     *    createTime
      */
     long getCreateTime();
 

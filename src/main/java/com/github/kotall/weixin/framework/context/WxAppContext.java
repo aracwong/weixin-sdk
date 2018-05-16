@@ -61,7 +61,9 @@ public class WxAppContext {
      * 根据 appId 获取 WxAccessToken
      *
      * @param appId
+     *        appId
      * @return
+     *     WxAccessTokenResp
      */
     public static WxAccessTokenResp getWxAccessToken(String appId) {
         return wxAccessToken.get(appId);
@@ -70,7 +72,10 @@ public class WxAppContext {
     /**
      * 设置 WxAccessToken 以 WxAccessToken 中appId为key
      *
+     * @param appId
+     *        appId
      * @param accessToken
+     *        WxAccessTokenResp
      */
     public static void setWxAccessToken(String appId, WxAccessTokenResp accessToken) {
         wxAccessToken.put(appId, accessToken);
@@ -80,6 +85,7 @@ public class WxAppContext {
      * 注册自定义 Handler
      *
      * @param handlers
+     *        handler mapping
      */
     public void registerHandler(Map<String, Object> handlers) {
         Object[] beansWithHandlerAnnotation = handlers.values().toArray();

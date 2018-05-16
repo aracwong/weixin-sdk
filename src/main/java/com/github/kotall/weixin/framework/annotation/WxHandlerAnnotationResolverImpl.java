@@ -13,6 +13,7 @@ public class WxHandlerAnnotationResolverImpl implements WxAnnotationResolver {
     /**
      *
      * @param wxHandlers
+     *        注解解析器集合
      */
     @Override
     public void resolve(Map<String, Object> wxHandlers) {

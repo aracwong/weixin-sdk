@@ -18,7 +18,9 @@ public class WxHandlerDispatcher {
      * 微信消息核心处理器
      *
      * @param request
+     *        请求对象
      * @param response
+     *        响应对象
      */
     public void doDispatch(WxRequest request, WxResponse response) {
         WxRequestFilterChain wxHandlerChain = null;

@@ -17,7 +17,9 @@ public abstract class WxDelegateRequestFilter<R extends WxRequest> implements Wx
      * 该 Handler支持的消息处理类型
      *
      * @param request
+     *       微信请求对象
      * @return
+     *       是否支持
      */
     public abstract boolean support(WxRequest request);
 

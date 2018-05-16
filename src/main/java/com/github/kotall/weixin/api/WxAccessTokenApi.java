@@ -15,6 +15,7 @@ public interface WxAccessTokenApi {
      * @param wxAccessToken
      *        accessToken 对象
      * @return
+     *       WxAccessTokenResp
      */
     WxAccessTokenResp refreshAccessToken(WxAccessTokenReq wxAccessToken);
 
@@ -24,6 +25,7 @@ public interface WxAccessTokenApi {
      * @param wxJsAccessTokenReq
      *        网页accessToken 对象
      * @return
+     *        WxJsAccessTokenResp
      */
     WxJsAccessTokenResp getJsAccessToken(WxJsAccessTokenReq wxJsAccessTokenReq);
 
@@ -34,6 +36,7 @@ public interface WxAccessTokenApi {
      * @param wxJsRefreshAccessTokenReq
      *       网页 refreshAccessToken 对象
      * @return
+     *       WxJsAccessTokenResp
      */
     WxJsAccessTokenResp refreshJsAccessToken(WxJsRefreshAccessTokenReq wxJsRefreshAccessTokenReq);
 
@@ -43,6 +46,7 @@ public interface WxAccessTokenApi {
      * @param wxCheckAccessTokenReq
      *       网页刷新accessToken请求对象
      * @return
+     *       WxResult
      */
     WxResult checkJsAcccessToken(WxCheckAccessTokenReq wxCheckAccessTokenReq);
 
