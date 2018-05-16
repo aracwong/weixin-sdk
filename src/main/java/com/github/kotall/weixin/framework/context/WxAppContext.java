@@ -5,6 +5,7 @@ import com.github.kotall.weixin.framework.annotation.WxHandler;
 import com.github.kotall.weixin.framework.constant.WxConstant;
 import com.github.kotall.weixin.framework.constant.WxMsgType;
 import com.github.kotall.weixin.framework.core.WxRequestFilter;
+import com.github.kotall.weixin.framework.handler.event.*;
 import com.github.kotall.weixin.framework.handler.file.DefaultWxFileRequestHandler;
 import com.github.kotall.weixin.framework.handler.image.DefaultWxImageRequestHandler;
 import com.github.kotall.weixin.framework.handler.link.DefaultWxLinkRequestHandler;
@@ -12,8 +13,6 @@ import com.github.kotall.weixin.framework.handler.location.DefaultWxLocationRequ
 import com.github.kotall.weixin.framework.handler.text.DefaultWxTextRequestHandler;
 import com.github.kotall.weixin.framework.handler.video.DefaultWxVideoRequestHandler;
 import com.github.kotall.weixin.framework.handler.voice.DefaultWxVoiceRequestHandler;
-import com.github.aracwong.weixin.framework.handler.event.*;
-import com.github.kotall.weixin.framework.handler.event.*;
 
 import java.util.ArrayList;
 import java.util.List;
