@@ -1,6 +1,7 @@
 package com.github.aracwong.weixin.framework.core;
 
 import com.github.aracwong.weixin.framework.context.WxAppContext;
+import com.google.common.base.Charsets;
 import com.google.common.base.Strings;
 import com.thoughtworks.xstream.XStream;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 单例对象
+ * 微信消息核心处理器
  *
  * @author aracwong
  * @version 1.0.0
@@ -33,6 +34,8 @@ public class WxHandlerDispatcher extends HttpServlet {
         String nonce = req.getParameter("nonce");
         String signature = req.getParameter("signature");
 
+        req.setCharacterEncoding(Charsets.UTF_8.name());
+        resp.setCharacterEncoding(Charsets.UTF_8.name());
         try {
             /** 微信认证请求处理 */
             if ("GET".equals(reqMethod)) {
@@ -48,8 +51,8 @@ public class WxHandlerDispatcher extends HttpServlet {
                 String encryptStr = DigestUtils.sha1Hex(sb.toString());
                 if (encryptStr.equals(signature)) {
                     log.info("========== 认证成功！");
-                    resp.getOutputStream().print(echoStr);
-                    resp.getOutputStream().flush();
+                    resp.getWriter().print(echoStr);
+                    resp.getWriter().flush();
                 } else {
                     log.info("========== 认证失败！");
                 }
@@ -69,7 +72,7 @@ public class WxHandlerDispatcher extends HttpServlet {
 
                 reqIs.close();
 
-                String reqBody = result.toString();
+                String reqBody = result.toString(Charsets.UTF_8.name());
                 if (!Strings.isNullOrEmpty(reqBody)) {
                     WxDefaultRequest wxRequest = new WxDefaultRequest(reqBody);
                     WxResponse wxResponse = new WxDefaultResponse(wxRequest);
@@ -83,8 +86,8 @@ public class WxHandlerDispatcher extends HttpServlet {
                         xStream.autodetectAnnotations(true);
                         String xml = xStream.toXML(responseBody);
                         log.info("响应报文：\r\n{}", xml);
-                        resp.getOutputStream().print(xml);
-                        resp.getOutputStream().flush();
+                        resp.getWriter().print(xml);
+                        resp.getWriter().flush();
                     }
                 }
             }
