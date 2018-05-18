@@ -26,8 +26,15 @@ import java.util.List;
 @Slf4j
 public class WxHandlerDispatcher extends HttpServlet {
 
+	private static final long serialVersionUID = 9017862407604594950L;
 
-    @Override
+	@Override
+	public void init() throws ServletException {
+		// TODO Auto-generated method stub
+		super.init();
+	}
+
+	@Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String reqMethod = req.getMethod();
         String timestamp = req.getParameter("timestamp");
