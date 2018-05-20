@@ -1,5 +1,6 @@
 package com.github.aracwong.weixin.framework.core;
 
+import com.github.aracwong.weixin.dto.accesstoken.WxAccountDto;
 import com.github.aracwong.weixin.framework.context.WxAppContext;
 import com.google.common.base.Charsets;
 import com.google.common.base.Strings;
@@ -27,6 +28,14 @@ import java.util.List;
 public class WxHandlerDispatcher extends HttpServlet {
 
 
+    private WxConfigHolder wxConfigHolder;
+
+    public WxHandlerDispatcher() {}
+
+    public WxHandlerDispatcher(WxConfigHolder wxConfigHolder) {
+        this.wxConfigHolder = wxConfigHolder;
+    }
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String reqMethod = req.getMethod();
@@ -34,6 +43,7 @@ public class WxHandlerDispatcher extends HttpServlet {
         String nonce = req.getParameter("nonce");
         String signature = req.getParameter("signature");
 
+        String url = req.getRequestURL().toString();
         req.setCharacterEncoding(Charsets.UTF_8.name());
         resp.setCharacterEncoding(Charsets.UTF_8.name());
         try {
@@ -43,8 +53,10 @@ public class WxHandlerDispatcher extends HttpServlet {
                 List<String> list = new ArrayList<>();
                 list.add(timestamp);
                 list.add(nonce);
-
-                // 获取 token TODO
+                WxAccountDto wxAccountDto = this.wxConfigHolder.getWxAccount(url);
+                if (null != wxAccountDto) {
+                    list.add(wxAccountDto.getToken());
+                }
                 StringBuffer sb = new StringBuffer();
                 list.forEach(str -> sb.append(str));
 

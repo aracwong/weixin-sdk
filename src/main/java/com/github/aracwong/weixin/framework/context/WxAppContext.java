@@ -1,9 +1,11 @@
 package com.github.aracwong.weixin.framework.context;
 
 import com.github.aracwong.weixin.dto.accesstoken.WxAccessTokenResp;
+import com.github.aracwong.weixin.dto.accesstoken.WxAccountDto;
 import com.github.aracwong.weixin.framework.annotation.WxHandler;
 import com.github.aracwong.weixin.framework.constant.WxConstant;
 import com.github.aracwong.weixin.framework.constant.WxMsgType;
+import com.github.aracwong.weixin.framework.core.WxConfigHolder;
 import com.github.aracwong.weixin.framework.core.WxRequestFilter;
 import com.github.aracwong.weixin.framework.handler.event.*;
 import com.github.aracwong.weixin.framework.handler.file.DefaultWxFileRequestHandler;
@@ -30,6 +32,7 @@ public class WxAppContext {
      * value: WxAccessToken
      */
     private static Map<String, WxAccessTokenResp> wxAccessToken = new ConcurrentHashMap<>();
+
 
     private static Map<String, WxRequestFilter> defaultHandlerMapping = new ConcurrentHashMap<>();
 
@@ -156,4 +159,5 @@ public class WxAppContext {
             }
         }
     }
+
 }
