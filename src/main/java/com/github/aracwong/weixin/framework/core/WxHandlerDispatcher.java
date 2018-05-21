@@ -1,5 +1,6 @@
 package com.github.aracwong.weixin.framework.core;
 
+import com.github.aracwong.weixin.dto.accesstoken.WxAccountDto;
 import com.github.aracwong.weixin.framework.context.WxAppContext;
 import com.google.common.base.Charsets;
 import com.google.common.base.Strings;
@@ -44,6 +45,7 @@ public class WxHandlerDispatcher extends HttpServlet {
 
         req.setCharacterEncoding(Charsets.UTF_8.name());
         resp.setCharacterEncoding(Charsets.UTF_8.name());
+        String url = req.getRequestURL().toString();
         try {
             /** 微信认证请求处理 */
             if ("GET".equals(reqMethod)) {
@@ -52,7 +54,11 @@ public class WxHandlerDispatcher extends HttpServlet {
                 list.add(timestamp);
                 list.add(nonce);
 
-                // 获取 token TODO
+                // 获取 token
+                WxAccountDto wxAccountDto = this.wxConfigHolder.getWxAccount(url);
+                if (null != wxAccountDto) {
+                    list.add(wxAccountDto.getToken());
+                }
                 StringBuffer sb = new StringBuffer();
                 list.forEach(str -> sb.append(str));
 
