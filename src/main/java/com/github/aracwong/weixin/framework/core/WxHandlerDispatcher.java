@@ -59,6 +59,7 @@ public class WxHandlerDispatcher extends HttpServlet {
                 if (null != wxAccountDto) {
                     list.add(wxAccountDto.getToken());
                 }
+                log.info("====== 微信认证请求 url: {}, 微信账户配置：{}", url, wxAccountDto);
                 StringBuffer sb = new StringBuffer();
                 list.forEach(str -> sb.append(str));
 
@@ -87,6 +88,8 @@ public class WxHandlerDispatcher extends HttpServlet {
                 reqIs.close();
 
                 String reqBody = result.toString(Charsets.UTF_8.name());
+
+                log.info("========== 微信POST请求: \r\n{}", reqBody);
                 if (!Strings.isNullOrEmpty(reqBody)) {
                     WxDefaultRequest wxRequest = new WxDefaultRequest(reqBody);
                     WxResponse wxResponse = new WxDefaultResponse(wxRequest);
