@@ -26,12 +26,12 @@ public class WxMenuApiImpl implements WxMenuApi {
 
     @Override
     public WxResult create(String appId, List<WxReqMenuDto> wxMenus) {
-        log.info("创建微信菜单请求：appId={}, 菜单定义: {}", appId, wxMenus);
         String url = WX_MENU_CREATE + "?access_token=" + WxAppContext.getWxAccessToken(appId).getAccessToken();
         Gson gson = new GsonBuilder().disableHtmlEscaping().create();
         Map<String, List<WxReqMenuDto>> wxMenuMap = new HashMap<>(1);
         wxMenuMap.put("button", wxMenus);
         String postEntity = gson.toJson(wxMenuMap);
+        log.info("创建微信菜单请求：appId={}, 菜单定义: {}", appId, wxMenus);
         String jsonResult = HttpClientUtil.post(url, postEntity);
         WxResult wxResult = gson.fromJson(jsonResult, WxResult.class);
         log.info("创建菜单请求响应：{}", wxResult);
