@@ -9,5 +9,6 @@
 
 核心处理器：WxHandlerDispatcher
 
-
+- 2018/07
+重构
 
