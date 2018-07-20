@@ -121,6 +121,7 @@ public class WxHandlerDispatcher extends HttpServlet {
      */
     public void doDispatch(WxRequest request, WxResponse response) {
         WxRequestFilterChain wxHandlerChain = null;
+        // TODO 1. 加载默认处理器
         List<WxRequestFilter> handlers = WxAppContext.getWxMsgHandlers();
         if (null != handlers && handlers.size() != 0) {
             wxHandlerChain = new WxRequestFilterChain();
@@ -128,6 +129,7 @@ public class WxHandlerDispatcher extends HttpServlet {
                 wxHandlerChain.addHandler(handler);
             }
         }
+        // TODO 2. 加载重载处理器
         if (null == wxHandlerChain) {
             log.warn("暂不支持的消息类型: {}", request.getMsgType());
         }
