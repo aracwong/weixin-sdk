@@ -9,7 +9,7 @@ import com.github.aracwong.weixin.dto.accesstoken.WxAccountDto;
  * @author zpwang
  * @version 1.0.0
  */
-public interface WxConfigHolder {
+public interface WxConfigStorage {
 
 
     /**

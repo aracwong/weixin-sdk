@@ -28,12 +28,12 @@ import java.util.List;
 public class WxHandlerDispatcher extends HttpServlet {
 
 
-    private WxConfigHolder wxConfigHolder;
+    private WxConfigStorage wxConfigStorage;
 
     public WxHandlerDispatcher() {}
 
-    public WxHandlerDispatcher(WxConfigHolder wxConfigHolder) {
-        this.wxConfigHolder = wxConfigHolder;
+    public WxHandlerDispatcher(WxConfigStorage wxConfigStorage) {
+        this.wxConfigStorage = wxConfigStorage;
     }
 
     @Override
@@ -55,7 +55,7 @@ public class WxHandlerDispatcher extends HttpServlet {
                 list.add(nonce);
 
                 // 获取 token
-                WxAccountDto wxAccountDto = this.wxConfigHolder.getWxAccount(url);
+                WxAccountDto wxAccountDto = this.wxConfigStorage.getWxAccount(url);
                 if (null != wxAccountDto) {
                     list.add(wxAccountDto.getToken());
                 }
