@@ -43,13 +43,13 @@ public class WxAppContext {
         defaultHandlerMapping.put(WxConstant.HANDLER_LOCATION, new DefaultWxLocationRequestHandler());
         defaultHandlerMapping.put(WxConstant.HANDLER_FILE, new DefaultWxFileRequestHandler());
 
-        defaultHandlerMapping.put(WxConstant.HANDLER_FOLLOW_EVENT, new DefaultWxFollowEventHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_QRCODE_EVENT, new DefaultWxQrCodeEventHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_LOCCATION_EVENT, new DefaultWxLocationEventHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_MENU_DEFAULT_EVENT, new DefaultWxMenuEventHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_MENU_SCANCODE_PUSH_EVENT, new DefaultWxScanCodeEventHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_MENU_PIC_PHOTO_EVENT, new DefaultWxPicPhotoEventHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_MENU_LOCATION_SELECT_EVENT, new DefaultWxLocationSelectEventHandler());
+        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_FOLLOW, new DefaultWxFollowEventHandler());
+        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_QRCODE, new DefaultWxQrCodeEventHandler());
+        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_LOCATION, new DefaultWxLocationEventHandler());
+        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_MENU_DEFAULT, new DefaultWxMenuEventHandler());
+        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_MENU_SCANCODE_PUSH, new DefaultWxScanCodeEventHandler());
+        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_MENU_PIC_PHOTO, new DefaultWxPicPhotoEventHandler());
+        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_MENU_LOCATION_SELECT, new DefaultWxLocationSelectEventHandler());
     }
 
     public static List<WxRequestFilter> getWxMsgHandlers() {
@@ -132,25 +132,25 @@ public class WxAppContext {
                     break;
                 case WxMsgType.EVENT:
                     if (handler instanceof DefaultWxFollowEventHandler) {
-                        defaultHandlerMapping.put(WxConstant.HANDLER_FOLLOW_EVENT, handler);
+                        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_FOLLOW, handler);
                     }
                     if (handler instanceof DefaultWxQrCodeEventHandler) {
-                        defaultHandlerMapping.put(WxConstant.HANDLER_QRCODE_EVENT, handler);
+                        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_QRCODE, handler);
                     }
                     if (handler instanceof DefaultWxLocationEventHandler) {
-                        defaultHandlerMapping.put(WxConstant.HANDLER_LOCCATION_EVENT, handler);
+                        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_LOCATION, handler);
                     }
                     if (handler instanceof DefaultWxMenuEventHandler) {
-                        defaultHandlerMapping.put(WxConstant.HANDLER_MENU_DEFAULT_EVENT, handler);
+                        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_MENU_DEFAULT, handler);
                     }
                     if (handler instanceof DefaultWxScanCodeEventHandler) {
-                        defaultHandlerMapping.put(WxConstant.HANDLER_MENU_SCANCODE_PUSH_EVENT, handler);
+                        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_MENU_SCANCODE_PUSH, handler);
                     }
                     if (handler instanceof DefaultWxPicPhotoEventHandler) {
-                        defaultHandlerMapping.put(WxConstant.HANDLER_MENU_PIC_PHOTO_EVENT, handler);
+                        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_MENU_PIC_PHOTO, handler);
                     }
                     if (handler instanceof DefaultWxLocationSelectEventHandler) {
-                        defaultHandlerMapping.put(WxConstant.HANDLER_MENU_LOCATION_SELECT_EVENT, handler);
+                        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_MENU_LOCATION_SELECT, handler);
                     }
                     break;
                 default:

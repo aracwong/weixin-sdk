@@ -67,38 +67,38 @@ public class WxConstant {
     /**
      * 关注/取消关注 事件
      */
-    public static final String HANDLER_FOLLOW_EVENT = "HANDLER_FOLLOW_EVENT";
+    public static final String HANDLER_EVENT_FOLLOW = "HANDLER_EVENT_FOLLOW";
 
     /**
      * 扫码关注事件
      */
-    public static final String HANDLER_QRCODE_EVENT = "HANDLER_QRCODE_EVENT";
+    public static final String HANDLER_EVENT_QRCODE = "HANDLER_EVENT_QRCODE";
 
     /**
      * 位置事件
      */
-    public static final String HANDLER_LOCCATION_EVENT = "HANDLER_LOCCATION_EVENT";
+    public static final String HANDLER_EVENT_LOCATION = "HANDLER_EVENT_LOCATION";
 
     /**
      * 菜单基本事件：CLICK VIEW
      */
-    public static final String HANDLER_MENU_DEFAULT_EVENT = "HANDLER_MENU_DEFAULT_EVENT";
+    public static final String HANDLER_EVENT_MENU_DEFAULT = "HANDLER_EVENT_MENU_DEFAULT";
 
     /**
      * 自定义菜单扫码推事件
      */
-    public static final String HANDLER_MENU_SCANCODE_PUSH_EVENT = "HANDLER_MENU_SCANCODE_PUSH_EVENT";
+    public static final String HANDLER_EVENT_MENU_SCANCODE_PUSH = "HANDLER_EVENT_MENU_SCANCODE_PUSH";
 
     /**
      * 弹出系统拍照发图的事件推送
      * 弹出拍照或者相册发图的事件推送
      */
-    public static final String HANDLER_MENU_PIC_PHOTO_EVENT = "HANDLER_MENU_PIC_PHOTO_EVENT";
+    public static final String HANDLER_EVENT_MENU_PIC_PHOTO = "HANDLER_EVENT_MENU_PIC_PHOTO";
 
     /**
      * 弹出地理位置选择器的事件推送
      */
-    public static final String HANDLER_MENU_LOCATION_SELECT_EVENT = "HANDLER_MENU_LOCATION_SELECT_EVENT";
+    public static final String HANDLER_EVENT_MENU_LOCATION_SELECT = "HANDLER_EVENT_MENU_LOCATION_SELECT";
 
     /**
      * 用户 openid
