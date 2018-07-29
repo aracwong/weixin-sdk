@@ -1,6 +1,7 @@
 package com.github.aracwong.weixin.framework.core;
 
 import com.github.aracwong.weixin.dto.accesstoken.WxAccountDto;
+import com.github.aracwong.weixin.framework.annotation.WxHandler;
 import com.github.aracwong.weixin.framework.constant.WxConstant;
 import com.github.aracwong.weixin.framework.context.WxAppContext;
 import com.github.aracwong.weixin.framework.handler.event.*;
@@ -25,7 +26,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.annotation.Annotation;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -41,7 +44,9 @@ public class WxHandlerDispatcher extends HttpServlet {
 
 
     private WxConfigStorage wxConfigStorage;
-    private String handlerAnnotationPacakge = "com.github.aracwong.weixin";
+
+
+    private List<WxRequestFilter> handlerList = Collections.emptyList();
 
     public WxHandlerDispatcher() {}
 
@@ -51,7 +56,8 @@ public class WxHandlerDispatcher extends HttpServlet {
 
     public WxHandlerDispatcher(WxConfigStorage wxConfigStorage, String handlerAnnotationPacakge) {
         this.wxConfigStorage = wxConfigStorage;
-        this.handlerAnnotationPacakge = handlerAnnotationPacakge;
+        // 注册消息处理器
+        registWxMsgHandlers(handlerAnnotationPacakge);
     }
 
     @Override
@@ -139,15 +145,14 @@ public class WxHandlerDispatcher extends HttpServlet {
      */
     public void doDispatch(WxRequest request, WxResponse response) {
         WxRequestFilterChain wxHandlerChain = null;
-        // TODO 1. 加载默认处理器
-        List<WxRequestFilter> handlers = WxAppContext.getWxMsgHandlers();
+        List<WxRequestFilter> handlers = this.handlerList;
         if (null != handlers && handlers.size() != 0) {
             wxHandlerChain = new WxRequestFilterChain();
             for (WxRequestFilter handler : handlers) {
                 wxHandlerChain.addHandler(handler);
             }
         }
-        // TODO 2. 加载重载处理器
+
         if (null == wxHandlerChain) {
             log.warn("暂不支持的消息类型: {}", request.getMsgType());
         }
@@ -155,8 +160,11 @@ public class WxHandlerDispatcher extends HttpServlet {
         wxHandlerChain.doFilter(request, response, wxHandlerChain);
     }
 
-    private List<WxRequestFilter> getWxMsgHandlers() {
+    public void registWxMsgHandlers(String handlerAnnotationPacakge) {
+        List<WxRequestFilter> handlerList = new ArrayList<>();
+
         Map<String, WxRequestFilter> defaultHandlerMapping = new ConcurrentHashMap<>();
+
         /** 注册默认消息处理器 */
         defaultHandlerMapping.put(WxConstant.HANDLER_TEXT, new DefaultWxTextRequestHandler());
         defaultHandlerMapping.put(WxConstant.HANDLER_IMAGE, new DefaultWxImageRequestHandler());
@@ -175,15 +183,26 @@ public class WxHandlerDispatcher extends HttpServlet {
         defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_MENU_LOCATION_SELECT, new DefaultWxLocationSelectEventHandler());
 
         /** 注册消息处理器 */
+        if (Strings.isNullOrEmpty(handlerAnnotationPacakge)) {
+            handlerAnnotationPacakge = "com.github.aracwong.weixin";
+        }
         List<Class<?>> classes = ClassUtil.getClasses(handlerAnnotationPacakge);
         for (Class<?> aClass : classes) {
-            //aClass.getAnnotation(WxHandler.class);
-
+            Annotation annotation = aClass.getAnnotation(com.github.aracwong.weixin.framework.annotation.WxHandler.class);
+            if (null != annotation && annotation instanceof WxHandler) {
+                WxHandler wxHandler = (WxHandler)annotation;
+                String msgType = wxHandler.forMsgType();
+                try {
+                    WxRequestFilter wxRequestFilter = (WxRequestFilter)aClass.newInstance();
+                    log.info("===注册消息处理器：msgType={}, 处理器类名：{}", msgType, aClass.getSimpleName());
+                    defaultHandlerMapping.put(msgType, wxRequestFilter);
+                } catch (Exception e) {
+                    throw new RuntimeException("register implementation WxHandler exception!", e);
+                }
+            }
         }
 
-        return null;
-
-
+        defaultHandlerMapping.forEach((key, value) -> handlerList.add(value));
     }
 
 }
