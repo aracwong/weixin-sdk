@@ -56,7 +56,7 @@ public class WxHandlerDispatcher extends HttpServlet {
     public WxHandlerDispatcher(WxConfigStorage wxConfigStorage, String handlerAnnotationPacakge) {
         this.wxConfigStorage = wxConfigStorage;
         // 注册消息处理器
-        registWxMsgHandlers(handlerAnnotationPacakge);
+        registerWxMsgHandlers(handlerAnnotationPacakge);
     }
 
     @Override
@@ -159,7 +159,7 @@ public class WxHandlerDispatcher extends HttpServlet {
         wxHandlerChain.doFilter(request, response, wxHandlerChain);
     }
 
-    public void registWxMsgHandlers(String handlerAnnotationPacakge) {
+    public void registerWxMsgHandlers(String handlerAnnotationPackage) {
         List<WxRequestFilter> handlerList = new ArrayList<>();
 
         Map<String, WxRequestFilter> defaultHandlerMapping = new ConcurrentHashMap<>();
@@ -182,10 +182,10 @@ public class WxHandlerDispatcher extends HttpServlet {
         defaultHandlerMapping.put(WxHandlerType.HANDLER_EVENT_MENU_LOCATION_SELECT, new DefaultWxLocationSelectEventHandler());
 
         /** 注册消息处理器 */
-        if (Strings.isNullOrEmpty(handlerAnnotationPacakge)) {
-            handlerAnnotationPacakge = "com.github.aracwong.weixin";
+        if (Strings.isNullOrEmpty(handlerAnnotationPackage)) {
+            handlerAnnotationPackage = "com.github.aracwong.weixin";
         }
-        List<Class<?>> classes = ClassUtil.getClasses(handlerAnnotationPacakge);
+        List<Class<?>> classes = ClassUtil.getClasses(handlerAnnotationPackage);
         for (Class<?> aClass : classes) {
             Annotation annotation = aClass.getAnnotation(com.github.aracwong.weixin.framework.annotation.WxHandler.class);
             if (null != annotation && annotation instanceof WxHandler) {
