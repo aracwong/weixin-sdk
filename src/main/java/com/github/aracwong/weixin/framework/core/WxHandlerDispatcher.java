@@ -160,7 +160,7 @@ public class WxHandlerDispatcher extends HttpServlet {
     }
 
     public void registerWxMsgHandlers(String handlerAnnotationPackage) {
-        List<WxRequestFilter> handlerList = new ArrayList<>();
+        handlerList = new ArrayList<>();
 
         Map<String, WxRequestFilter> defaultHandlerMapping = new ConcurrentHashMap<>();
 
