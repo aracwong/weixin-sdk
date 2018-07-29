@@ -1,5 +1,6 @@
 package com.github.aracwong.weixin.framework.handler.event;
 
+import com.github.aracwong.weixin.framework.constant.WxConstant;
 import com.github.aracwong.weixin.framework.constant.WxMsgType;
 import com.github.aracwong.weixin.framework.core.WxResponse;
 import com.github.aracwong.weixin.framework.core.WxDelegateRequestFilter;
@@ -13,6 +14,11 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class DefaultWxLocationEventHandler extends WxDelegateRequestFilter<WxLocationEventReq> {
+
+    @Override
+    public String getHandlerKey() {
+        return WxConstant.HANDLER_EVENT_LOCATION;
+    }
 
     @Override
     public boolean support(WxRequest request) {

@@ -1,5 +1,6 @@
 package com.github.aracwong.weixin.framework.handler.event;
 
+import com.github.aracwong.weixin.framework.constant.WxConstant;
 import com.github.aracwong.weixin.framework.event.WxScanCodeEventReq;
 import com.github.aracwong.weixin.framework.constant.WxMsgType;
 import com.github.aracwong.weixin.framework.core.WxDelegateRequestFilter;
@@ -16,6 +17,11 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class DefaultWxScanCodeEventHandler extends WxDelegateRequestFilter<WxScanCodeEventReq> {
+
+    @Override
+    public String getHandlerKey() {
+        return WxConstant.HANDLER_EVENT_MENU_SCANCODE_PUSH;
+    }
 
     @Override
     public boolean support(WxRequest request) {

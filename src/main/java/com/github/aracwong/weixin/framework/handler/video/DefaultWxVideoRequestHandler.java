@@ -1,5 +1,6 @@
 package com.github.aracwong.weixin.framework.handler.video;
 
+import com.github.aracwong.weixin.framework.constant.WxConstant;
 import com.github.aracwong.weixin.framework.constant.WxMsgType;
 import com.github.aracwong.weixin.framework.core.WxDelegateRequestFilter;
 import com.github.aracwong.weixin.framework.core.WxRequest;
@@ -14,6 +15,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class DefaultWxVideoRequestHandler extends WxDelegateRequestFilter<WxVideoMsgReq> {
 
+    @Override
+    public String getHandlerKey() {
+        return WxConstant.HANDLER_VIDEO;
+    }
 
     @Override
     public boolean support(WxRequest request) {

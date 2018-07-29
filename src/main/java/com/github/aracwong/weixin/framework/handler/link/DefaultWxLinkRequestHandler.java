@@ -1,5 +1,6 @@
 package com.github.aracwong.weixin.framework.handler.link;
 
+import com.github.aracwong.weixin.framework.constant.WxConstant;
 import com.github.aracwong.weixin.framework.msg.link.WxLinkMsgReq;
 import com.github.aracwong.weixin.framework.constant.WxMsgType;
 import com.github.aracwong.weixin.framework.core.WxDelegateRequestFilter;
@@ -13,6 +14,11 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class DefaultWxLinkRequestHandler extends WxDelegateRequestFilter<WxLinkMsgReq> {
+
+    @Override
+    public String getHandlerKey() {
+        return WxConstant.HANDLER_LINK;
+    }
 
     @Override
     public boolean support(WxRequest request) {

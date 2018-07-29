@@ -83,7 +83,7 @@ public class ClassUtil {
      * @param packageName
      * @return
      */
-    private static List<Class<?>> getClasses(String packageName) {
+    public static List<Class<?>> getClasses(String packageName) {
 
         // 第一个class类的集合
         List<Class<?>> classes = new ArrayList<>();

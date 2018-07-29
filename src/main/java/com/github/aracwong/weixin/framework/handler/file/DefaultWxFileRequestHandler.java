@@ -1,5 +1,6 @@
 package com.github.aracwong.weixin.framework.handler.file;
 
+import com.github.aracwong.weixin.framework.constant.WxConstant;
 import com.github.aracwong.weixin.framework.constant.WxMsgType;
 import com.github.aracwong.weixin.framework.core.WxDelegateRequestFilter;
 import com.github.aracwong.weixin.framework.core.WxRequest;
@@ -13,6 +14,11 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class DefaultWxFileRequestHandler extends WxDelegateRequestFilter<WxFileMsgReq> {
+
+    @Override
+    public String getHandlerKey() {
+        return WxConstant.HANDLER_FILE;
+    }
 
     @Override
     public boolean support(WxRequest request) {
