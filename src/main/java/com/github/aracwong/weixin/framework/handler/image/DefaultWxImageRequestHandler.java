@@ -1,6 +1,6 @@
 package com.github.aracwong.weixin.framework.handler.image;
 
-import com.github.aracwong.weixin.framework.constant.WxConstant;
+import com.github.aracwong.weixin.framework.constant.WxHandlerType;
 import com.github.aracwong.weixin.framework.constant.WxMsgType;
 import com.github.aracwong.weixin.framework.core.WxDelegateRequestFilter;
 import com.github.aracwong.weixin.framework.core.WxRequest;
@@ -17,7 +17,7 @@ public class DefaultWxImageRequestHandler extends WxDelegateRequestFilter<WxImag
 
     @Override
     public String getHandlerKey() {
-        return WxConstant.HANDLER_IMAGE;
+        return WxHandlerType.HANDLER_IMAGE;
     }
 
     @Override

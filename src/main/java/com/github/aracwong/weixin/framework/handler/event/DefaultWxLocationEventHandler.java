@@ -1,10 +1,10 @@
 package com.github.aracwong.weixin.framework.handler.event;
 
-import com.github.aracwong.weixin.framework.constant.WxConstant;
+import com.github.aracwong.weixin.framework.constant.WxHandlerType;
 import com.github.aracwong.weixin.framework.constant.WxMsgType;
-import com.github.aracwong.weixin.framework.core.WxResponse;
 import com.github.aracwong.weixin.framework.core.WxDelegateRequestFilter;
 import com.github.aracwong.weixin.framework.core.WxRequest;
+import com.github.aracwong.weixin.framework.core.WxResponse;
 import com.github.aracwong.weixin.framework.event.WxLocationEventReq;
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,7 +17,7 @@ public class DefaultWxLocationEventHandler extends WxDelegateRequestFilter<WxLoc
 
     @Override
     public String getHandlerKey() {
-        return WxConstant.HANDLER_EVENT_LOCATION;
+        return WxHandlerType.HANDLER_EVENT_LOCATION;
     }
 
     @Override

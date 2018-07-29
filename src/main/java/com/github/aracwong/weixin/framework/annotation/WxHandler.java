@@ -16,8 +16,8 @@ import java.lang.annotation.Target;
 public @interface WxHandler {
 
     /**
-     * 消息处理器类型 参见 WxConstants
-     * @see com.github.aracwong.weixin.framework.constant.WxConstant
+     * 消息处理器类型 参见 WxHandlerType
+     * @see com.github.aracwong.weixin.framework.constant.WxHandlerType
      * @return
      *      handlerType
      */

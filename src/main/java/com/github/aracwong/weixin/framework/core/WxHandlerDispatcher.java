@@ -2,7 +2,7 @@ package com.github.aracwong.weixin.framework.core;
 
 import com.github.aracwong.weixin.dto.accesstoken.WxAccountDto;
 import com.github.aracwong.weixin.framework.annotation.WxHandler;
-import com.github.aracwong.weixin.framework.constant.WxConstant;
+import com.github.aracwong.weixin.framework.constant.WxHandlerType;
 import com.github.aracwong.weixin.framework.handler.event.*;
 import com.github.aracwong.weixin.framework.handler.file.DefaultWxFileRequestHandler;
 import com.github.aracwong.weixin.framework.handler.image.DefaultWxImageRequestHandler;
@@ -165,21 +165,21 @@ public class WxHandlerDispatcher extends HttpServlet {
         Map<String, WxRequestFilter> defaultHandlerMapping = new ConcurrentHashMap<>();
 
         /** 注册默认消息处理器 */
-        defaultHandlerMapping.put(WxConstant.HANDLER_TEXT, new DefaultWxTextRequestHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_IMAGE, new DefaultWxImageRequestHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_VOICE, new DefaultWxVoiceRequestHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_VIDEO, new DefaultWxVideoRequestHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_LINK, new DefaultWxLinkRequestHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_LOCATION, new DefaultWxLocationRequestHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_FILE, new DefaultWxFileRequestHandler());
+        defaultHandlerMapping.put(WxHandlerType.HANDLER_TEXT, new DefaultWxTextRequestHandler());
+        defaultHandlerMapping.put(WxHandlerType.HANDLER_IMAGE, new DefaultWxImageRequestHandler());
+        defaultHandlerMapping.put(WxHandlerType.HANDLER_VOICE, new DefaultWxVoiceRequestHandler());
+        defaultHandlerMapping.put(WxHandlerType.HANDLER_VIDEO, new DefaultWxVideoRequestHandler());
+        defaultHandlerMapping.put(WxHandlerType.HANDLER_LINK, new DefaultWxLinkRequestHandler());
+        defaultHandlerMapping.put(WxHandlerType.HANDLER_LOCATION, new DefaultWxLocationRequestHandler());
+        defaultHandlerMapping.put(WxHandlerType.HANDLER_FILE, new DefaultWxFileRequestHandler());
 
-        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_FOLLOW, new DefaultWxFollowEventHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_QRCODE, new DefaultWxQrCodeEventHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_LOCATION, new DefaultWxLocationEventHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_MENU_DEFAULT, new DefaultWxMenuEventHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_MENU_SCANCODE_PUSH, new DefaultWxScanCodeEventHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_MENU_PIC_PHOTO, new DefaultWxPicPhotoEventHandler());
-        defaultHandlerMapping.put(WxConstant.HANDLER_EVENT_MENU_LOCATION_SELECT, new DefaultWxLocationSelectEventHandler());
+        defaultHandlerMapping.put(WxHandlerType.HANDLER_EVENT_FOLLOW, new DefaultWxFollowEventHandler());
+        defaultHandlerMapping.put(WxHandlerType.HANDLER_EVENT_QRCODE, new DefaultWxQrCodeEventHandler());
+        defaultHandlerMapping.put(WxHandlerType.HANDLER_EVENT_LOCATION, new DefaultWxLocationEventHandler());
+        defaultHandlerMapping.put(WxHandlerType.HANDLER_EVENT_MENU_DEFAULT, new DefaultWxMenuEventHandler());
+        defaultHandlerMapping.put(WxHandlerType.HANDLER_EVENT_MENU_SCANCODE_PUSH, new DefaultWxScanCodeEventHandler());
+        defaultHandlerMapping.put(WxHandlerType.HANDLER_EVENT_MENU_PIC_PHOTO, new DefaultWxPicPhotoEventHandler());
+        defaultHandlerMapping.put(WxHandlerType.HANDLER_EVENT_MENU_LOCATION_SELECT, new DefaultWxLocationSelectEventHandler());
 
         /** 注册消息处理器 */
         if (Strings.isNullOrEmpty(handlerAnnotationPacakge)) {

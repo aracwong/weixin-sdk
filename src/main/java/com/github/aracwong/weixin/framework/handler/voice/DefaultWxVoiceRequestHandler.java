@@ -1,6 +1,6 @@
 package com.github.aracwong.weixin.framework.handler.voice;
 
-import com.github.aracwong.weixin.framework.constant.WxConstant;
+import com.github.aracwong.weixin.framework.constant.WxHandlerType;
 import com.github.aracwong.weixin.framework.constant.WxMsgType;
 import com.github.aracwong.weixin.framework.core.WxDelegateRequestFilter;
 import com.github.aracwong.weixin.framework.core.WxRequest;
@@ -18,7 +18,7 @@ public class DefaultWxVoiceRequestHandler extends WxDelegateRequestFilter<WxVoic
 
     @Override
     public String getHandlerKey() {
-        return WxConstant.HANDLER_VOICE;
+        return WxHandlerType.HANDLER_VOICE;
     }
 
     @Override

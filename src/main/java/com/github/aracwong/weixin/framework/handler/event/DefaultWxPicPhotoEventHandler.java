@@ -1,6 +1,6 @@
 package com.github.aracwong.weixin.framework.handler.event;
 
-import com.github.aracwong.weixin.framework.constant.WxConstant;
+import com.github.aracwong.weixin.framework.constant.WxHandlerType;
 import com.github.aracwong.weixin.framework.constant.WxMsgType;
 import com.github.aracwong.weixin.framework.core.WxDelegateRequestFilter;
 import com.github.aracwong.weixin.framework.core.WxRequest;
@@ -21,7 +21,7 @@ public class DefaultWxPicPhotoEventHandler extends WxDelegateRequestFilter<WxPic
 
     @Override
     public String getHandlerKey() {
-        return WxConstant.HANDLER_EVENT_MENU_PIC_PHOTO;
+        return WxHandlerType.HANDLER_EVENT_MENU_PIC_PHOTO;
     }
 
     @Override

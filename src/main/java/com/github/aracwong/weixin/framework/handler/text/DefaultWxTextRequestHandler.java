@@ -1,11 +1,11 @@
 package com.github.aracwong.weixin.framework.handler.text;
 
-import com.github.aracwong.weixin.framework.constant.WxConstant;
-import com.github.aracwong.weixin.framework.msg.text.WxTextMsgReq;
+import com.github.aracwong.weixin.framework.constant.WxHandlerType;
 import com.github.aracwong.weixin.framework.constant.WxMsgType;
 import com.github.aracwong.weixin.framework.core.WxDelegateRequestFilter;
 import com.github.aracwong.weixin.framework.core.WxRequest;
 import com.github.aracwong.weixin.framework.core.WxResponse;
+import com.github.aracwong.weixin.framework.msg.text.WxTextMsgReq;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -17,7 +17,7 @@ public class DefaultWxTextRequestHandler extends WxDelegateRequestFilter<WxTextM
 
     @Override
     public String getHandlerKey() {
-        return WxConstant.HANDLER_TEXT;
+        return WxHandlerType.HANDLER_TEXT;
     }
 
     @Override

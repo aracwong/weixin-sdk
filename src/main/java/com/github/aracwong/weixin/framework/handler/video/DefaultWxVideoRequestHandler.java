@@ -1,6 +1,6 @@
 package com.github.aracwong.weixin.framework.handler.video;
 
-import com.github.aracwong.weixin.framework.constant.WxConstant;
+import com.github.aracwong.weixin.framework.constant.WxHandlerType;
 import com.github.aracwong.weixin.framework.constant.WxMsgType;
 import com.github.aracwong.weixin.framework.core.WxDelegateRequestFilter;
 import com.github.aracwong.weixin.framework.core.WxRequest;
@@ -17,7 +17,7 @@ public class DefaultWxVideoRequestHandler extends WxDelegateRequestFilter<WxVide
 
     @Override
     public String getHandlerKey() {
-        return WxConstant.HANDLER_VIDEO;
+        return WxHandlerType.HANDLER_VIDEO;
     }
 
     @Override

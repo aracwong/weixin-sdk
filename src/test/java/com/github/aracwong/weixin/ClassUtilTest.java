@@ -1,7 +1,7 @@
 package com.github.aracwong.weixin;
 
 import com.github.aracwong.weixin.framework.annotation.WxHandler;
-import com.github.aracwong.weixin.framework.constant.WxConstant;
+import com.github.aracwong.weixin.framework.constant.WxHandlerType;
 import com.github.aracwong.weixin.utils.ClassUtil;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,7 +13,7 @@ import java.util.List;
  * @author zpwang
  * @version 1.0.0
  */
-@WxHandler(forType = WxConstant.HANDLER_EVENT_FOLLOW)
+@WxHandler(forType = WxHandlerType.HANDLER_EVENT_FOLLOW)
 public class ClassUtilTest {
 
     @Test
