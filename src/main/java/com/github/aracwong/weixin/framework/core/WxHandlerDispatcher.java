@@ -193,7 +193,7 @@ public class WxHandlerDispatcher extends HttpServlet {
                 String handlerType = wxHandler.forType();
                 try {
                     WxRequestFilter wxRequestFilter = (WxRequestFilter)aClass.newInstance();
-                    log.info("===注册消息处理器：handlerType={}, 处理器类名：{}", handlerType, aClass.getSimpleName());
+                    log.info("===注册消息处理器：handlerType={}, 处理器类名：{}", handlerType, aClass.getName());
                     defaultHandlerMapping.put(handlerType, wxRequestFilter);
                 } catch (Exception e) {
                     throw new RuntimeException("register implementation WxHandler exception!", e);
