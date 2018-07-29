@@ -1,7 +1,5 @@
 package com.github.aracwong.weixin.framework.annotation;
 
-import com.github.aracwong.weixin.framework.constant.WxMsgType;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -18,10 +16,10 @@ import java.lang.annotation.Target;
 public @interface WxHandler {
 
     /**
-     * 消息类型 对应微信报文中的 WxMsgType
-     * @see WxMsgType
+     * 消息处理器类型 参见 WxConstants
+     * @see com.github.aracwong.weixin.framework.constant.WxConstant
      * @return
-     *      msgType
+     *      handlerType
      */
-    String forMsgType();
+    String forType();
 }

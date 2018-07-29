@@ -13,7 +13,7 @@ import java.util.List;
  * @author zpwang
  * @version 1.0.0
  */
-@WxHandler(forMsgType = WxConstant.HANDLER_EVENT_FOLLOW)
+@WxHandler(forType = WxConstant.HANDLER_EVENT_FOLLOW)
 public class ClassUtilTest {
 
     @Test

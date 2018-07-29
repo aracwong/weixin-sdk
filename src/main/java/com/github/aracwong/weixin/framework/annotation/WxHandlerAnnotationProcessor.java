@@ -36,12 +36,11 @@ public class WxHandlerAnnotationProcessor extends AbstractProcessor {
             for (Element element : roundEnv.getElementsAnnotatedWith(typeElement)) {
                 // 使用roundEnv.getElementsAnnotatedWith获取所有被某一类型注解标注的元素，依次遍历
 
-                String forMsgType = element.getAnnotation(WxHandler.class).forMsgType();
-                System.out.println("===========================================");
-                log.info("=== WxHandlerAnnotationProcessor process WxHandler with msgType: [{}]", forMsgType);
+                String handlerType = element.getAnnotation(WxHandler.class).forType();
+                log.info("=== WxHandlerAnnotationProcessor process WxHandler with handlerType: [{}]", handlerType);
 
                 // 向当前环境输出warning信息
-                processingEnv.getMessager().printMessage(Diagnostic.Kind.WARNING, "forMsgType = " + forMsgType, element);
+                processingEnv.getMessager().printMessage(Diagnostic.Kind.WARNING, "handlerType = " + handlerType, element);
 
 
             }

@@ -3,7 +3,6 @@ package com.github.aracwong.weixin.framework.core;
 import com.github.aracwong.weixin.dto.accesstoken.WxAccountDto;
 import com.github.aracwong.weixin.framework.annotation.WxHandler;
 import com.github.aracwong.weixin.framework.constant.WxConstant;
-import com.github.aracwong.weixin.framework.context.WxAppContext;
 import com.github.aracwong.weixin.framework.handler.event.*;
 import com.github.aracwong.weixin.framework.handler.file.DefaultWxFileRequestHandler;
 import com.github.aracwong.weixin.framework.handler.image.DefaultWxImageRequestHandler;
@@ -191,11 +190,11 @@ public class WxHandlerDispatcher extends HttpServlet {
             Annotation annotation = aClass.getAnnotation(com.github.aracwong.weixin.framework.annotation.WxHandler.class);
             if (null != annotation && annotation instanceof WxHandler) {
                 WxHandler wxHandler = (WxHandler)annotation;
-                String msgType = wxHandler.forMsgType();
+                String handlerType = wxHandler.forType();
                 try {
                     WxRequestFilter wxRequestFilter = (WxRequestFilter)aClass.newInstance();
-                    log.info("===注册消息处理器：msgType={}, 处理器类名：{}", msgType, aClass.getSimpleName());
-                    defaultHandlerMapping.put(msgType, wxRequestFilter);
+                    log.info("===注册消息处理器：handlerType={}, 处理器类名：{}", handlerType, aClass.getSimpleName());
+                    defaultHandlerMapping.put(handlerType, wxRequestFilter);
                 } catch (Exception e) {
                     throw new RuntimeException("register implementation WxHandler exception!", e);
                 }
