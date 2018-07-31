@@ -14,13 +14,6 @@ import java.lang.reflect.ParameterizedType;
 public abstract class WxDelegateRequestFilter<R extends WxRequest> implements WxRequestFilter, WxHandler<R> {
 
     /**
-     * handler key
-     * 建议使用能标记唯一的 msgType
-     * @return
-     */
-    public abstract String getHandlerKey();
-
-    /**
      * 该 Handler支持的消息处理类型
      *
      * @param request
