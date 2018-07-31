@@ -142,10 +142,4 @@ public class WxHandlerDispatcher extends HttpServlet {
         wxHandlerChain.doFilter(request, response, wxHandlerChain);
     }
 
-    public void configWxMsgHandlerRegistration(WxMsgHandlerRegistration wxHandlerRegistration) {
-        log.info("=====================register WxMsgHandlerRegistration !");
-        this.wxHandlerRegistration = wxHandlerRegistration;
-    }
-
-
 }
