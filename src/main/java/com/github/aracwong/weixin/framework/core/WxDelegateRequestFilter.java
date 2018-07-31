@@ -13,16 +13,6 @@ import java.lang.reflect.ParameterizedType;
  */
 public abstract class WxDelegateRequestFilter<R extends WxRequest> implements WxRequestFilter, WxHandler<R> {
 
-    /**
-     * 该 Handler支持的消息处理类型
-     *
-     * @param request
-     *       微信请求对象
-     * @return
-     *       是否支持
-     */
-    public abstract boolean support(WxRequest request);
-
     @Override
     public void doFilter(WxRequest request, WxResponse response, WxRequestFilterChain chain) {
         // 1. 判断该Handler是否支持此报文处理

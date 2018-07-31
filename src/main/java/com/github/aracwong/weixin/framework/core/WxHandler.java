@@ -16,6 +16,16 @@ public interface WxHandler<R extends WxRequest> {
     String getHandlerKey();
 
     /**
+     * 该 Handler支持的消息处理类型
+     *
+     * @param request
+     *       微信请求对象
+     * @return
+     *       是否支持
+     */
+    boolean support(WxRequest request);
+
+    /**
      * 处理微信请求的具体业务处理逻辑
      *
      * @param request
