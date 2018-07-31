@@ -1,17 +1,6 @@
 package com.github.aracwong.weixin.framework.core;
 
 import com.github.aracwong.weixin.dto.accesstoken.WxAccountDto;
-import com.github.aracwong.weixin.framework.annotation.WxHandler;
-import com.github.aracwong.weixin.framework.constant.WxHandlerType;
-import com.github.aracwong.weixin.framework.handler.event.*;
-import com.github.aracwong.weixin.framework.handler.file.DefaultWxFileRequestHandler;
-import com.github.aracwong.weixin.framework.handler.image.DefaultWxImageRequestHandler;
-import com.github.aracwong.weixin.framework.handler.link.DefaultWxLinkRequestHandler;
-import com.github.aracwong.weixin.framework.handler.location.DefaultWxLocationRequestHandler;
-import com.github.aracwong.weixin.framework.handler.text.DefaultWxTextRequestHandler;
-import com.github.aracwong.weixin.framework.handler.video.DefaultWxVideoRequestHandler;
-import com.github.aracwong.weixin.framework.handler.voice.DefaultWxVoiceRequestHandler;
-import com.github.aracwong.weixin.utils.ClassUtil;
 import com.google.common.base.Charsets;
 import com.google.common.base.Strings;
 import com.thoughtworks.xstream.XStream;
@@ -25,12 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.annotation.Annotation;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 微信消息核心处理器
@@ -44,8 +29,7 @@ public class WxHandlerDispatcher extends HttpServlet {
 
     private WxConfigStorage wxConfigStorage;
 
-
-    private List<WxRequestFilter> handlerList = Collections.emptyList();
+    private WxMsgHandlerRegistration wxHandlerRegistration;
 
     public WxHandlerDispatcher() {}
 
@@ -53,10 +37,9 @@ public class WxHandlerDispatcher extends HttpServlet {
         this.wxConfigStorage = wxConfigStorage;
     }
 
-    public WxHandlerDispatcher(WxConfigStorage wxConfigStorage, String handlerAnnotationPacakge) {
+    public WxHandlerDispatcher(WxConfigStorage wxConfigStorage, WxMsgHandlerRegistration wxHandlerRegistration) {
         this.wxConfigStorage = wxConfigStorage;
-        // 注册消息处理器
-        registerWxMsgHandlers(handlerAnnotationPacakge);
+        this.wxHandlerRegistration = wxHandlerRegistration;
     }
 
     @Override
@@ -144,7 +127,7 @@ public class WxHandlerDispatcher extends HttpServlet {
      */
     public void doDispatch(WxRequest request, WxResponse response) {
         WxRequestFilterChain wxHandlerChain = null;
-        List<WxRequestFilter> handlers = this.handlerList;
+        List<WxRequestFilter> handlers = this.wxHandlerRegistration.getHandlerFilters();
         if (null != handlers && handlers.size() != 0) {
             wxHandlerChain = new WxRequestFilterChain();
             for (WxRequestFilter handler : handlers) {
@@ -159,49 +142,10 @@ public class WxHandlerDispatcher extends HttpServlet {
         wxHandlerChain.doFilter(request, response, wxHandlerChain);
     }
 
-    public void registerWxMsgHandlers(String handlerAnnotationPackage) {
-        handlerList = new ArrayList<>();
-
-        Map<String, WxRequestFilter> defaultHandlerMapping = new ConcurrentHashMap<>();
-
-        /** 注册默认消息处理器 */
-        defaultHandlerMapping.put(WxHandlerType.HANDLER_TEXT, new DefaultWxTextRequestHandler());
-        defaultHandlerMapping.put(WxHandlerType.HANDLER_IMAGE, new DefaultWxImageRequestHandler());
-        defaultHandlerMapping.put(WxHandlerType.HANDLER_VOICE, new DefaultWxVoiceRequestHandler());
-        defaultHandlerMapping.put(WxHandlerType.HANDLER_VIDEO, new DefaultWxVideoRequestHandler());
-        defaultHandlerMapping.put(WxHandlerType.HANDLER_LINK, new DefaultWxLinkRequestHandler());
-        defaultHandlerMapping.put(WxHandlerType.HANDLER_LOCATION, new DefaultWxLocationRequestHandler());
-        defaultHandlerMapping.put(WxHandlerType.HANDLER_FILE, new DefaultWxFileRequestHandler());
-
-        defaultHandlerMapping.put(WxHandlerType.HANDLER_EVENT_FOLLOW, new DefaultWxFollowEventHandler());
-        defaultHandlerMapping.put(WxHandlerType.HANDLER_EVENT_QRCODE, new DefaultWxQrCodeEventHandler());
-        defaultHandlerMapping.put(WxHandlerType.HANDLER_EVENT_LOCATION, new DefaultWxLocationEventHandler());
-        defaultHandlerMapping.put(WxHandlerType.HANDLER_EVENT_MENU_DEFAULT, new DefaultWxMenuEventHandler());
-        defaultHandlerMapping.put(WxHandlerType.HANDLER_EVENT_MENU_SCANCODE_PUSH, new DefaultWxScanCodeEventHandler());
-        defaultHandlerMapping.put(WxHandlerType.HANDLER_EVENT_MENU_PIC_PHOTO, new DefaultWxPicPhotoEventHandler());
-        defaultHandlerMapping.put(WxHandlerType.HANDLER_EVENT_MENU_LOCATION_SELECT, new DefaultWxLocationSelectEventHandler());
-
-        /** 注册消息处理器 */
-        if (Strings.isNullOrEmpty(handlerAnnotationPackage)) {
-            handlerAnnotationPackage = "com.github.aracwong.weixin";
-        }
-        List<Class<?>> classes = ClassUtil.getClasses(handlerAnnotationPackage);
-        for (Class<?> aClass : classes) {
-            Annotation annotation = aClass.getAnnotation(com.github.aracwong.weixin.framework.annotation.WxHandler.class);
-            if (null != annotation && annotation instanceof WxHandler) {
-                WxHandler wxHandler = (WxHandler)annotation;
-                String handlerType = wxHandler.forType();
-                try {
-                    WxRequestFilter wxRequestFilter = (WxRequestFilter)aClass.newInstance();
-                    log.info("===注册消息处理器：handlerType={}, 处理器类名：{}", handlerType, aClass.getName());
-                    defaultHandlerMapping.put(handlerType, wxRequestFilter);
-                } catch (Exception e) {
-                    throw new RuntimeException("register implementation WxHandler exception!", e);
-                }
-            }
-        }
-
-        defaultHandlerMapping.forEach((key, value) -> handlerList.add(value));
+    public void configWxMsgHandlerRegistration(WxMsgHandlerRegistration wxHandlerRegistration) {
+        log.info("=====================register WxMsgHandlerRegistration !");
+        this.wxHandlerRegistration = wxHandlerRegistration;
     }
+
 
 }
