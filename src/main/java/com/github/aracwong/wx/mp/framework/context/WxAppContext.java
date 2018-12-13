@@ -1,7 +1,6 @@
 package com.github.aracwong.wx.mp.framework.context;
 
 import com.github.aracwong.wx.mp.dto.accesstoken.WxAccessTokenResp;
-import com.github.aracwong.weixin.framework.handler.event.*;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

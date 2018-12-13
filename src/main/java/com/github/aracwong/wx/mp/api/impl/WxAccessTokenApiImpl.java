@@ -1,12 +1,11 @@
 package com.github.aracwong.wx.mp.api.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.github.aracwong.wx.common.utils.WxUtil;
 import com.github.aracwong.wx.mp.api.WxAccessTokenApi;
-import com.github.aracwong.weixin.dto.accesstoken.*;
 import com.github.aracwong.wx.mp.dto.accesstoken.*;
 import com.github.aracwong.wx.mp.dto.result.WxResult;
 import com.github.aracwong.wx.mp.framework.constant.WxConstant;
-import com.github.aracwong.wx.common.utils.WxUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

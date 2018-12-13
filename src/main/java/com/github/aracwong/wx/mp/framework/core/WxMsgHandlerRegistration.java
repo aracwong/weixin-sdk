@@ -1,6 +1,5 @@
 package com.github.aracwong.wx.mp.framework.core;
 
-import com.github.aracwong.weixin.framework.handler.event.*;
 import com.github.aracwong.wx.mp.framework.handler.event.*;
 import com.github.aracwong.wx.mp.framework.handler.file.DefaultWxFileRequestHandler;
 import com.github.aracwong.wx.mp.framework.handler.image.DefaultWxImageRequestHandler;

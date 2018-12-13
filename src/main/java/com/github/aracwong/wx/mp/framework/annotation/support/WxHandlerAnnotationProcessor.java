@@ -1,5 +1,6 @@
-package com.github.aracwong.wx.mp.framework.annotation;
+package com.github.aracwong.wx.mp.framework.annotation.support;
 
+import com.github.aracwong.wx.mp.framework.annotation.WxHandler;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.processing.*;
