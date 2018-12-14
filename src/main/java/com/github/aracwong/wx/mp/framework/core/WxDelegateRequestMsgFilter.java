@@ -11,7 +11,7 @@ import java.lang.reflect.ParameterizedType;
  * @author aracwong
  * @version 1.0.0
  */
-public abstract class WxDelegateRequestFilter<R extends WxRequest> implements WxRequestFilter, WxHandler<R> {
+public abstract class WxDelegateRequestMsgFilter<R extends WxRequest> implements WxRequestFilter, WxMsgHandler<R> {
 
     @Override
     public void doFilter(WxRequest request, WxResponse response, WxRequestFilterChain chain) {
@@ -21,7 +21,7 @@ public abstract class WxDelegateRequestFilter<R extends WxRequest> implements Wx
             R wxRequest;
 
             try {
-                // 获取 WxDelegateRequestFilter 注解参数
+                // 获取 WxDelegateRequestMsgFilter 注解参数
                 Class<R> clazz;
                 ParameterizedType type;
                 if (this.getClass().getSuperclass().getTypeParameters().length > 0) {

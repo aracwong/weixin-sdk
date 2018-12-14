@@ -2,7 +2,7 @@ package com.github.aracwong.wx.mp.framework.handler.voice;
 
 import com.github.aracwong.wx.mp.framework.constant.WxHandlerType;
 import com.github.aracwong.wx.mp.framework.constant.WxMsgType;
-import com.github.aracwong.wx.mp.framework.core.WxDelegateRequestFilter;
+import com.github.aracwong.wx.mp.framework.core.WxDelegateRequestMsgFilter;
 import com.github.aracwong.wx.mp.framework.core.WxRequest;
 import com.github.aracwong.wx.mp.framework.core.WxResponse;
 import com.github.aracwong.wx.mp.framework.msg.voice.WxVoiceMsgReq;
@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
  * @version 1.0.0
  */
 @Slf4j
-public class DefaultWxVoiceRequestHandler extends WxDelegateRequestFilter<WxVoiceMsgReq> {
+public class DefaultWxVoiceRequestMsgHandler extends WxDelegateRequestMsgFilter<WxVoiceMsgReq> {
 
 
     @Override

@@ -1,13 +1,13 @@
 package com.github.aracwong.wx.mp.framework.core;
 
 import com.github.aracwong.wx.mp.framework.handler.event.*;
-import com.github.aracwong.wx.mp.framework.handler.file.DefaultWxFileRequestHandler;
-import com.github.aracwong.wx.mp.framework.handler.image.DefaultWxImageRequestHandler;
-import com.github.aracwong.wx.mp.framework.handler.link.DefaultWxLinkRequestHandler;
-import com.github.aracwong.wx.mp.framework.handler.location.DefaultWxLocationRequestHandler;
-import com.github.aracwong.wx.mp.framework.handler.text.DefaultWxTextRequestHandler;
-import com.github.aracwong.wx.mp.framework.handler.video.DefaultWxVideoRequestHandler;
-import com.github.aracwong.wx.mp.framework.handler.voice.DefaultWxVoiceRequestHandler;
+import com.github.aracwong.wx.mp.framework.handler.file.DefaultWxFileRequestMsgHandler;
+import com.github.aracwong.wx.mp.framework.handler.image.DefaultWxImageRequestMsgHandler;
+import com.github.aracwong.wx.mp.framework.handler.link.DefaultWxLinkRequestMsgHandler;
+import com.github.aracwong.wx.mp.framework.handler.location.DefaultWxLocationRequestMsgHandler;
+import com.github.aracwong.wx.mp.framework.handler.text.DefaultWxTextRequestMsgHandler;
+import com.github.aracwong.wx.mp.framework.handler.video.DefaultWxVideoRequestMsgHandler;
+import com.github.aracwong.wx.mp.framework.handler.voice.DefaultWxVoiceRequestMsgHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,31 +20,31 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class WxMsgHandlerRegistration {
 
-    public static Map<String, WxDelegateRequestFilter> handlerFiltersMapping = new ConcurrentHashMap<>();
+    public static Map<String, WxDelegateRequestMsgFilter> handlerFiltersMapping = new ConcurrentHashMap<>();
 
     public WxMsgHandlerRegistration() {
         init();
     }
 
     private void init() {
-        registerHandler(new DefaultWxTextRequestHandler());
-        registerHandler(new DefaultWxImageRequestHandler());
-        registerHandler(new DefaultWxVoiceRequestHandler());
-        registerHandler(new DefaultWxVideoRequestHandler());
-        registerHandler(new DefaultWxLinkRequestHandler());
-        registerHandler(new DefaultWxLocationRequestHandler());
-        registerHandler(new DefaultWxFileRequestHandler());
+        registerHandler(new DefaultWxTextRequestMsgHandler());
+        registerHandler(new DefaultWxImageRequestMsgHandler());
+        registerHandler(new DefaultWxVoiceRequestMsgHandler());
+        registerHandler(new DefaultWxVideoRequestMsgHandler());
+        registerHandler(new DefaultWxLinkRequestMsgHandler());
+        registerHandler(new DefaultWxLocationRequestMsgHandler());
+        registerHandler(new DefaultWxFileRequestMsgHandler());
 
-        registerHandler(new DefaultWxFollowEventHandler());
-        registerHandler(new DefaultWxQrCodeEventHandler());
-        registerHandler(new DefaultWxLocationEventHandler());
-        registerHandler(new DefaultWxMenuEventHandler());
-        registerHandler(new DefaultWxScanCodeEventHandler());
-        registerHandler(new DefaultWxPicPhotoEventHandler());
-        registerHandler(new DefaultWxLocationSelectEventHandler());
+        registerHandler(new DefaultWxFollowEventMsgHandler());
+        registerHandler(new DefaultWxQrCodeEventMsgHandler());
+        registerHandler(new DefaultWxLocationEventMsgHandler());
+        registerHandler(new DefaultWxMenuEventMsgHandler());
+        registerHandler(new DefaultWxScanCodeEventMsgHandler());
+        registerHandler(new DefaultWxPicPhotoEventMsgHandler());
+        registerHandler(new DefaultWxLocationSelectEventMsgHandler());
     }
 
-    public WxMsgHandlerRegistration registerHandler(WxDelegateRequestFilter handler) {
+    public WxMsgHandlerRegistration registerHandler(WxDelegateRequestMsgFilter handler) {
         handlerFiltersMapping.put(handler.getHandlerKey(), handler);
         return this;
     }

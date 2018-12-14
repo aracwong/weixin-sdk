@@ -6,7 +6,7 @@ package com.github.aracwong.wx.mp.framework.core;
  * @author aracwong
  * @version 1.0.0
  */
-public interface WxHandler<R extends WxRequest> {
+public interface WxMsgHandler<R extends WxRequest> {
 
     /**
      * handler key
