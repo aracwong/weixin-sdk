@@ -1,6 +1,5 @@
 package com.github.aracwong.wx.mp.api;
 
-import com.github.aracwong.weixin.dto.accesstoken.*;
 import com.github.aracwong.wx.mp.dto.accesstoken.*;
 import com.github.aracwong.wx.mp.dto.result.WxResult;
 
