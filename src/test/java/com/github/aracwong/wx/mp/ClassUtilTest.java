@@ -2,7 +2,7 @@ package com.github.aracwong.wx.mp;
 
 import com.github.aracwong.wx.mp.framework.annotation.WxHandler;
 import com.github.aracwong.wx.mp.framework.constant.WxHandlerType;
-import com.github.aracwong.wx.common.utils.ClassUtil;
+import com.github.aracwong.wxframework.common.utils.ClassUtil;
 import org.junit.Assert;
 import org.junit.Test;
 
