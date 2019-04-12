@@ -1,7 +1,7 @@
 package com.github.aracwong.wxframework.mp.msg.text;
 
-import com.github.aracwong.wxframework.mp.core.WxRequest;
-import com.github.aracwong.wxframework.mp.core.WxRequestWrapper;
+import com.github.aracwong.wxframework.mp.core.request.WxRequest;
+import com.github.aracwong.wxframework.mp.core.request.WxRequestWrapper;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import lombok.Data;
 import lombok.ToString;

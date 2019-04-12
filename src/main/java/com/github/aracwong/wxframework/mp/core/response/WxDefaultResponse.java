@@ -1,5 +1,6 @@
-package com.github.aracwong.wxframework.mp.core;
+package com.github.aracwong.wxframework.mp.core.response;
 
+import com.github.aracwong.wxframework.mp.core.request.WxRequest;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import lombok.Data;
 

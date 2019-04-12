@@ -1,10 +1,10 @@
-package com.github.aracwong.wxframework.mp.constant;
+package com.github.aracwong.wxframework.common.constants;
 
 /**
  * @author aracwong
  * @version 1.0.0
  */
-public class WxMsgType {
+public class MpMsgType {
 
     /**
      * 文本消息

@@ -1,10 +1,10 @@
 package com.github.aracwong.wxframework.mp.handler.video;
 
-import com.github.aracwong.wxframework.mp.constant.WxHandlerType;
-import com.github.aracwong.wxframework.mp.constant.WxMsgType;
-import com.github.aracwong.wxframework.mp.core.WxDelegateRequestMsgFilter;
-import com.github.aracwong.wxframework.mp.core.WxRequest;
-import com.github.aracwong.wxframework.mp.core.WxResponse;
+import com.github.aracwong.wxframework.common.constants.MpHandlerType;
+import com.github.aracwong.wxframework.common.constants.MpMsgType;
+import com.github.aracwong.wxframework.mp.core.filter.WxDelegateRequestMsgFilter;
+import com.github.aracwong.wxframework.mp.core.request.WxRequest;
+import com.github.aracwong.wxframework.mp.core.response.WxResponse;
 import com.github.aracwong.wxframework.mp.msg.video.WxVideoMsgReq;
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,12 +17,12 @@ public class DefaultWxVideoRequestMsgHandler extends WxDelegateRequestMsgFilter<
 
     @Override
     public String getHandlerKey() {
-        return WxHandlerType.HANDLER_VIDEO;
+        return MpHandlerType.HANDLER_VIDEO;
     }
 
     @Override
     public boolean support(WxRequest request) {
-        if (WxMsgType.VIDEO.equals(request.getMsgType())) {
+        if (MpMsgType.VIDEO.equals(request.getMsgType())) {
            return true;
         }
         return false;

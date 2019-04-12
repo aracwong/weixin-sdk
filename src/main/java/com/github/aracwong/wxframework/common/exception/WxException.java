@@ -1,4 +1,4 @@
-package com.github.aracwong.wxframework.mp.exception;
+package com.github.aracwong.wxframework.common.exception;
 
 /**
  * @author zpwang

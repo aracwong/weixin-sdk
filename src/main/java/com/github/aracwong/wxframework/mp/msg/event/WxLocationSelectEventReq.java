@@ -1,7 +1,7 @@
-package com.github.aracwong.wxframework.mp.event;
+package com.github.aracwong.wxframework.mp.msg.event;
 
-import com.github.aracwong.wxframework.mp.core.WxEventRequest;
-import com.github.aracwong.wxframework.mp.core.WxRequest;
+import com.github.aracwong.wxframework.mp.core.request.WxEventRequest;
+import com.github.aracwong.wxframework.mp.core.request.WxRequest;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import lombok.Data;
 

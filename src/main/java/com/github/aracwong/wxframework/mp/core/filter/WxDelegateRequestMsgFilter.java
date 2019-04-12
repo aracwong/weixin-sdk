@@ -1,6 +1,11 @@
-package com.github.aracwong.wxframework.mp.core;
+package com.github.aracwong.wxframework.mp.core.filter;
 
-import com.github.aracwong.wxframework.mp.exception.WxException;
+import com.github.aracwong.wxframework.common.exception.WxException;
+import com.github.aracwong.wxframework.mp.core.WxMsgHandler;
+import com.github.aracwong.wxframework.mp.core.filter.WxRequestFilter;
+import com.github.aracwong.wxframework.mp.core.filter.WxRequestFilterChain;
+import com.github.aracwong.wxframework.mp.core.request.WxRequest;
+import com.github.aracwong.wxframework.mp.core.response.WxResponse;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.ParameterizedType;

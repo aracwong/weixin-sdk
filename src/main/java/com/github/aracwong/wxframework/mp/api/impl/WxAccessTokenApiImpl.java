@@ -5,7 +5,7 @@ import com.github.aracwong.wxframework.common.utils.WxUtil;
 import com.github.aracwong.wxframework.mp.api.WxAccessTokenApi;
 import com.github.aracwong.wxframework.mp.dto.token.*;
 import com.github.aracwong.wxframework.mp.dto.result.WxResult;
-import com.github.aracwong.wxframework.mp.constant.WxConstant;
+import com.github.aracwong.wxframework.common.constants.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,13 +32,13 @@ public class WxAccessTokenApiImpl implements WxAccessTokenApi {
         String requestUrl = WX_ACCESS_TOKEN_URL.replace("APPID", wxAccessTokenReq.getAppId()).replace("APPSECRET", wxAccessTokenReq.getAppSecret());
         JSONObject rs = WxUtil.get(requestUrl);
         WxAccessTokenResp wxAccessTokenResp;
-        if (null == rs || rs.containsKey(WxConstant.WX_ERROR_CODE_KEY)) {
-            log.warn("failed to refresh accessToken from WeiXin server, errcode:{}, errmsg:{}", rs.get(WxConstant.WX_ERROR_CODE_KEY), rs.get(WxConstant.WX_ERROR_MSG_KEY));
+        if (null == rs || rs.containsKey(Constants.WX_ERROR_CODE_KEY)) {
+            log.warn("failed to refresh accessToken from WeiXin server, errcode:{}, errmsg:{}", rs.get(Constants.WX_ERROR_CODE_KEY), rs.get(Constants.WX_ERROR_MSG_KEY));
             return null;
         } else {
             wxAccessTokenResp = new WxAccessTokenResp();
-            wxAccessTokenResp.setAccessToken(rs.getString(WxConstant.WX_ACCESS_TOKEN));
-            wxAccessTokenResp.setExpiresIn(rs.getString(WxConstant.WX_EXPIRE_IN));
+            wxAccessTokenResp.setAccessToken(rs.getString(Constants.WX_ACCESS_TOKEN));
+            wxAccessTokenResp.setExpiresIn(rs.getString(Constants.WX_EXPIRE_IN));
         }
         return wxAccessTokenResp;
     }
@@ -51,8 +51,8 @@ public class WxAccessTokenApiImpl implements WxAccessTokenApi {
                 .replace("CODE", wxJsAccessTokenReq.getCode());
         JSONObject rs = WxUtil.get(reqUrl);
         WxJsAccessTokenResp wxJsAccessTokenResp;
-        if (null == rs || rs.containsKey(WxConstant.WX_ERROR_CODE_KEY)) {
-            log.warn("failed to get js accessToken from WeiXin server, errcode:{}, errmsg:{}", rs.get(WxConstant.WX_ERROR_CODE_KEY), rs.get(WxConstant.WX_ERROR_MSG_KEY));
+        if (null == rs || rs.containsKey(Constants.WX_ERROR_CODE_KEY)) {
+            log.warn("failed to get js accessToken from WeiXin server, errcode:{}, errmsg:{}", rs.get(Constants.WX_ERROR_CODE_KEY), rs.get(Constants.WX_ERROR_MSG_KEY));
             return null;
         } else {
             wxJsAccessTokenResp = this.getWxJsAccessTokenResp(rs);
@@ -68,8 +68,8 @@ public class WxAccessTokenApiImpl implements WxAccessTokenApi {
                 .replace("REFRESH_TOKEN", wxJsRefreshAccessTokenReq.getRefreshToken());
         JSONObject rs = WxUtil.get(reqUrl);
         WxJsAccessTokenResp wxJsAccessTokenResp;
-        if (null == rs || rs.containsKey(WxConstant.WX_ERROR_CODE_KEY)) {
-            log.warn("failed to refresh js accessToken from WeiXin server, errcode:{}, errmsg:{}", rs.get(WxConstant.WX_ERROR_CODE_KEY), rs.get(WxConstant.WX_ERROR_MSG_KEY));
+        if (null == rs || rs.containsKey(Constants.WX_ERROR_CODE_KEY)) {
+            log.warn("failed to refresh js accessToken from WeiXin server, errcode:{}, errmsg:{}", rs.get(Constants.WX_ERROR_CODE_KEY), rs.get(Constants.WX_ERROR_MSG_KEY));
             return null;
         } else {
             wxJsAccessTokenResp = this.getWxJsAccessTokenResp(rs);
@@ -87,8 +87,8 @@ public class WxAccessTokenApiImpl implements WxAccessTokenApi {
         WxResult result = null;
         if (null != rs) {
             result = new WxResult();
-            result.setErrcode(rs.getString(WxConstant.WX_ERROR_CODE_KEY));
-            result.setErrmsg(rs.getString(WxConstant.WX_ERROR_MSG_KEY));
+            result.setErrcode(rs.getString(Constants.WX_ERROR_CODE_KEY));
+            result.setErrmsg(rs.getString(Constants.WX_ERROR_MSG_KEY));
         }
         return result;
     }
@@ -97,11 +97,11 @@ public class WxAccessTokenApiImpl implements WxAccessTokenApi {
     private WxJsAccessTokenResp getWxJsAccessTokenResp(JSONObject rs) {
         WxJsAccessTokenResp wxJsAccessTokenResp;
         wxJsAccessTokenResp = new WxJsAccessTokenResp();
-        wxJsAccessTokenResp.setAccessToken(rs.getString(WxConstant.WX_ACCESS_TOKEN));
-        wxJsAccessTokenResp.setExpiresIn(rs.getString(WxConstant.WX_EXPIRE_IN));
-        wxJsAccessTokenResp.setOpenId(rs.getString(WxConstant.WX_OPENID));
-        wxJsAccessTokenResp.setRefreshToken(rs.getString(WxConstant.WX_REFRESH_TOKEN));
-        wxJsAccessTokenResp.setScope(rs.getString(WxConstant.WX_SCOPE));
+        wxJsAccessTokenResp.setAccessToken(rs.getString(Constants.WX_ACCESS_TOKEN));
+        wxJsAccessTokenResp.setExpiresIn(rs.getString(Constants.WX_EXPIRE_IN));
+        wxJsAccessTokenResp.setOpenId(rs.getString(Constants.WX_OPENID));
+        wxJsAccessTokenResp.setRefreshToken(rs.getString(Constants.WX_REFRESH_TOKEN));
+        wxJsAccessTokenResp.setScope(rs.getString(Constants.WX_SCOPE));
         return wxJsAccessTokenResp;
     }
 

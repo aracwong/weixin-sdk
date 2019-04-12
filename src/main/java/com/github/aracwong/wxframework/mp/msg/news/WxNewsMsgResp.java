@@ -1,7 +1,7 @@
 package com.github.aracwong.wxframework.mp.msg.news;
 
-import com.github.aracwong.wxframework.mp.core.WxBeanBasedResponseWrapper;
-import com.github.aracwong.wxframework.mp.core.WxResponse;
+import com.github.aracwong.wxframework.mp.core.response.WxBeanBasedResponseWrapper;
+import com.github.aracwong.wxframework.mp.core.response.WxResponse;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import lombok.Data;
 import lombok.ToString;

@@ -1,6 +1,6 @@
-package com.github.aracwong.wxframework.mp.core;
+package com.github.aracwong.wxframework.mp.core.request;
 
-import com.github.aracwong.wxframework.mp.exception.WxException;
+import com.github.aracwong.wxframework.common.exception.WxException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

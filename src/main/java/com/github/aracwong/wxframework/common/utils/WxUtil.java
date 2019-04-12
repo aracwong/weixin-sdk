@@ -1,7 +1,7 @@
 package com.github.aracwong.wxframework.common.utils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.github.aracwong.wxframework.mp.exception.WxException;
+import com.github.aracwong.wxframework.common.exception.WxException;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.methods.CloseableHttpResponse;

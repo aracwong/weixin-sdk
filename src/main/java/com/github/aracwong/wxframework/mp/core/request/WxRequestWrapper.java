@@ -1,5 +1,6 @@
-package com.github.aracwong.wxframework.mp.core;
+package com.github.aracwong.wxframework.mp.core.request;
 
+import com.github.aracwong.wxframework.mp.core.request.WxRequest;
 import lombok.Data;
 
 import java.util.Map;

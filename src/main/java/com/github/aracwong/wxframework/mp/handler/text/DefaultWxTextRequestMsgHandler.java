@@ -1,10 +1,10 @@
 package com.github.aracwong.wxframework.mp.handler.text;
 
-import com.github.aracwong.wxframework.mp.constant.WxHandlerType;
-import com.github.aracwong.wxframework.mp.constant.WxMsgType;
-import com.github.aracwong.wxframework.mp.core.WxDelegateRequestMsgFilter;
-import com.github.aracwong.wxframework.mp.core.WxRequest;
-import com.github.aracwong.wxframework.mp.core.WxResponse;
+import com.github.aracwong.wxframework.common.constants.MpHandlerType;
+import com.github.aracwong.wxframework.common.constants.MpMsgType;
+import com.github.aracwong.wxframework.mp.core.filter.WxDelegateRequestMsgFilter;
+import com.github.aracwong.wxframework.mp.core.request.WxRequest;
+import com.github.aracwong.wxframework.mp.core.response.WxResponse;
 import com.github.aracwong.wxframework.mp.msg.text.WxTextMsgReq;
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,12 +17,12 @@ public class DefaultWxTextRequestMsgHandler extends WxDelegateRequestMsgFilter<W
 
     @Override
     public String getHandlerKey() {
-        return WxHandlerType.HANDLER_TEXT;
+        return MpHandlerType.HANDLER_TEXT;
     }
 
     @Override
     public boolean support(WxRequest request) {
-        if (WxMsgType.TEXT.equals(request.getMsgType())) {
+        if (MpMsgType.TEXT.equals(request.getMsgType())) {
             return true;
         }
         return false;

@@ -1,4 +1,4 @@
-package com.github.aracwong.wxframework.mp.constant;
+package com.github.aracwong.wxframework.common.constants;
 
 /**
  * 微信处理器类型常量
@@ -6,7 +6,7 @@ package com.github.aracwong.wxframework.mp.constant;
  * @author zpwang
  * @version 1.0.0
  */
-public class WxHandlerType {
+public class MpHandlerType {
 
     /**
      * 普通文本消息

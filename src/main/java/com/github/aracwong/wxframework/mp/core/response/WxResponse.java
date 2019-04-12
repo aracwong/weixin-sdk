@@ -1,4 +1,4 @@
-package com.github.aracwong.wxframework.mp.core;
+package com.github.aracwong.wxframework.mp.core.response;
 
 /**
  * @author aracwong

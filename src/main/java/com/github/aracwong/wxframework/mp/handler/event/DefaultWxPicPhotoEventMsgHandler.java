@@ -1,11 +1,11 @@
 package com.github.aracwong.wxframework.mp.handler.event;
 
-import com.github.aracwong.wxframework.mp.constant.WxHandlerType;
-import com.github.aracwong.wxframework.mp.constant.WxMsgType;
-import com.github.aracwong.wxframework.mp.core.WxDelegateRequestMsgFilter;
-import com.github.aracwong.wxframework.mp.core.WxRequest;
-import com.github.aracwong.wxframework.mp.core.WxResponse;
-import com.github.aracwong.wxframework.mp.event.WxPicSysPhotoEventReq;
+import com.github.aracwong.wxframework.common.constants.MpHandlerType;
+import com.github.aracwong.wxframework.common.constants.MpMsgType;
+import com.github.aracwong.wxframework.mp.core.filter.WxDelegateRequestMsgFilter;
+import com.github.aracwong.wxframework.mp.core.request.WxRequest;
+import com.github.aracwong.wxframework.mp.core.response.WxResponse;
+import com.github.aracwong.wxframework.mp.msg.event.WxPicSysPhotoEventReq;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -21,17 +21,17 @@ public class DefaultWxPicPhotoEventMsgHandler extends WxDelegateRequestMsgFilter
 
     @Override
     public String getHandlerKey() {
-        return WxHandlerType.HANDLER_EVENT_MENU_PIC_PHOTO;
+        return MpHandlerType.HANDLER_EVENT_MENU_PIC_PHOTO;
     }
 
     @Override
     public boolean support(WxRequest request) {
         String msgType = request.getMsgType();
         String event = request.getParameter("//Event");
-        boolean isPicSysPhotoEvent = WxMsgType.EVENT_PIC_SYSPHOTO.equals(event)
-                || WxMsgType.EVENT_PIC_PHOTO_OR_ALBUM.equals(event)
-                || WxMsgType.EVENT_PIC_WEIXIN.equals(event);
-        if (WxMsgType.EVENT.equals(msgType) && isPicSysPhotoEvent) {
+        boolean isPicSysPhotoEvent = MpMsgType.EVENT_PIC_SYSPHOTO.equals(event)
+                || MpMsgType.EVENT_PIC_PHOTO_OR_ALBUM.equals(event)
+                || MpMsgType.EVENT_PIC_WEIXIN.equals(event);
+        if (MpMsgType.EVENT.equals(msgType) && isPicSysPhotoEvent) {
             return true;
         }
         return false;

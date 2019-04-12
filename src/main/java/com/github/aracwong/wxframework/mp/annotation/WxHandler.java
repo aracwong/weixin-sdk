@@ -1,6 +1,6 @@
 package com.github.aracwong.wxframework.mp.annotation;
 
-import com.github.aracwong.wxframework.mp.constant.WxHandlerType;
+import com.github.aracwong.wxframework.common.constants.MpHandlerType;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -18,8 +18,8 @@ import java.lang.annotation.Target;
 public @interface WxHandler {
 
     /**
-     * 消息处理器类型 参见 WxHandlerType
-     * @see WxHandlerType
+     * 消息处理器类型 参见 MpHandlerType
+     * @see MpHandlerType
      * @return
      *      handlerType
      */

@@ -1,11 +1,11 @@
 package com.github.aracwong.wxframework.mp.handler.event;
 
-import com.github.aracwong.wxframework.mp.constant.WxHandlerType;
-import com.github.aracwong.wxframework.mp.constant.WxMsgType;
-import com.github.aracwong.wxframework.mp.core.WxDelegateRequestMsgFilter;
-import com.github.aracwong.wxframework.mp.core.WxRequest;
-import com.github.aracwong.wxframework.mp.core.WxResponse;
-import com.github.aracwong.wxframework.mp.event.WxScanCodeEventReq;
+import com.github.aracwong.wxframework.common.constants.MpHandlerType;
+import com.github.aracwong.wxframework.common.constants.MpMsgType;
+import com.github.aracwong.wxframework.mp.core.filter.WxDelegateRequestMsgFilter;
+import com.github.aracwong.wxframework.mp.core.request.WxRequest;
+import com.github.aracwong.wxframework.mp.core.response.WxResponse;
+import com.github.aracwong.wxframework.mp.msg.event.WxScanCodeEventReq;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -20,15 +20,15 @@ public class DefaultWxScanCodeEventMsgHandler extends WxDelegateRequestMsgFilter
 
     @Override
     public String getHandlerKey() {
-        return WxHandlerType.HANDLER_EVENT_MENU_SCANCODE_PUSH;
+        return MpHandlerType.HANDLER_EVENT_MENU_SCANCODE_PUSH;
     }
 
     @Override
     public boolean support(WxRequest request) {
         String msgType = request.getMsgType();
         String event = request.getParameter("//Event");
-        boolean isScanCodePushEvent = WxMsgType.EVENT_SCANCODE_PUSH.equals(event) || WxMsgType.EVENT_SCANCODE_PUSH_WAITMSG.equals(event);
-        if (WxMsgType.EVENT.equals(msgType)
+        boolean isScanCodePushEvent = MpMsgType.EVENT_SCANCODE_PUSH.equals(event) || MpMsgType.EVENT_SCANCODE_PUSH_WAITMSG.equals(event);
+        if (MpMsgType.EVENT.equals(msgType)
                 && isScanCodePushEvent) {
            return true;
         }

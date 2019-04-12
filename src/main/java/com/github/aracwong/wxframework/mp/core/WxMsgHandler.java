@@ -1,5 +1,8 @@
 package com.github.aracwong.wxframework.mp.core;
 
+import com.github.aracwong.wxframework.mp.core.request.WxRequest;
+import com.github.aracwong.wxframework.mp.core.response.WxResponse;
+
 /**
  * 微信消息具体处理器
  *

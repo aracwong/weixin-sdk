@@ -1,4 +1,6 @@
-package com.github.aracwong.wxframework.mp.core;
+package com.github.aracwong.wxframework.mp.core.request;
+
+import com.github.aracwong.wxframework.mp.core.request.WxRequest;
 
 /**
  * 微信消息解析器

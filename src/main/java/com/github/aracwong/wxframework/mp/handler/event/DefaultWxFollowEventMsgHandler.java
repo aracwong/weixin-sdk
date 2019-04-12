@@ -1,11 +1,11 @@
 package com.github.aracwong.wxframework.mp.handler.event;
 
-import com.github.aracwong.wxframework.mp.constant.WxHandlerType;
-import com.github.aracwong.wxframework.mp.constant.WxMsgType;
-import com.github.aracwong.wxframework.mp.core.WxDelegateRequestMsgFilter;
-import com.github.aracwong.wxframework.mp.core.WxRequest;
-import com.github.aracwong.wxframework.mp.core.WxResponse;
-import com.github.aracwong.wxframework.mp.event.WxFollowEventReq;
+import com.github.aracwong.wxframework.common.constants.MpHandlerType;
+import com.github.aracwong.wxframework.common.constants.MpMsgType;
+import com.github.aracwong.wxframework.mp.core.filter.WxDelegateRequestMsgFilter;
+import com.github.aracwong.wxframework.mp.core.request.WxRequest;
+import com.github.aracwong.wxframework.mp.core.response.WxResponse;
+import com.github.aracwong.wxframework.mp.msg.event.WxFollowEventReq;
 import com.google.common.base.Strings;
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,16 +20,16 @@ public class DefaultWxFollowEventMsgHandler extends WxDelegateRequestMsgFilter<W
 
     @Override
     public String getHandlerKey() {
-        return WxHandlerType.HANDLER_EVENT_FOLLOW;
+        return MpHandlerType.HANDLER_EVENT_FOLLOW;
     }
 
     @Override
     public boolean support(WxRequest request) {
         String event = request.getParameter("//Event");
         String eventKey = request.getParameter("//EventKey");
-        boolean isSubscribeOrUnSubscribeEvent = WxMsgType.EVENT_SUBSCRIBE.equals(event) || WxMsgType.EVENT_UNSUBSCRIBE.equals(event);
+        boolean isSubscribeOrUnSubscribeEvent = MpMsgType.EVENT_SUBSCRIBE.equals(event) || MpMsgType.EVENT_UNSUBSCRIBE.equals(event);
         // 2018-05-01 通过点击朋友分享的公众号，会带有EventKey 值为空
-        if (WxMsgType.EVENT.equals(request.getMsgType())
+        if (MpMsgType.EVENT.equals(request.getMsgType())
                 && isSubscribeOrUnSubscribeEvent
                 && Strings.isNullOrEmpty(eventKey)) {
             return true;

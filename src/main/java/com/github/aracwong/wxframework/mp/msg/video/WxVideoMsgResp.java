@@ -1,7 +1,7 @@
 package com.github.aracwong.wxframework.mp.msg.video;
 
-import com.github.aracwong.wxframework.mp.core.WxResponse;
-import com.github.aracwong.wxframework.mp.core.WxResponseWrapper;
+import com.github.aracwong.wxframework.mp.core.response.WxResponse;
+import com.github.aracwong.wxframework.mp.core.response.WxResponseWrapper;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import lombok.Data;
 import lombok.ToString;

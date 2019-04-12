@@ -1,10 +1,10 @@
-package com.github.aracwong.wxframework.mp.constant;
+package com.github.aracwong.wxframework.common.constants;
 
 /**
  * @author zpwang
  * @version 1.0.0
  */
-public class WxConstant {
+public class Constants {
 
     /**
      * 缓存中 access_token 前缀

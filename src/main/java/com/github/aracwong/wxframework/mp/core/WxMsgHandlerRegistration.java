@@ -1,5 +1,7 @@
 package com.github.aracwong.wxframework.mp.core;
 
+import com.github.aracwong.wxframework.mp.core.filter.WxRequestFilter;
+
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
