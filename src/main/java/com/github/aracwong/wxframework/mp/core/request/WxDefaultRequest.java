@@ -1,7 +1,5 @@
 package com.github.aracwong.wxframework.mp.core.request;
 
-import com.github.aracwong.wxframework.mp.core.request.WxRequest;
-import com.github.aracwong.wxframework.mp.core.request.WxXmlRequestResolver;
 import org.xml.sax.InputSource;
 
 import java.io.StringReader;
